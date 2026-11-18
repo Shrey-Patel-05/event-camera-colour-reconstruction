@@ -1,0 +1,36 @@
+{
+  "error_type": "TimingModelMismatchError",
+  "error": "Local flash scores pass, but successive RGB-cycle envelopes do not repeat at the configured period. Verify the controller timing and initial phase; no RGB responses should be assigned.",
+  "block_origin_after_file_first_us": 7447504,
+  "automatic_timing_passed": false,
+  "supported_flashes": 7,
+  "required_supported_flashes": 6,
+  "rank_score": 5.995187572075727,
+  "sequence_ON_score": 48.329586518072546,
+  "sequence_OFF_score": 21.272753829275107,
+  "startup_activity_score": -86.26942170925486,
+  "startup_transition_score": 321.67079268209716,
+  "quiet_before_us": 31500,
+  "source": "automatic_first_activity_with_fixed_RGB_check",
+  "first_onset_before_sync_us": 1072950,
+  "near_best_start_range_us": [
+    1072940,
+    1072950
+  ],
+  "phase_score_width_us": 20,
+  "phase_score_width_limit_us": 250,
+  "bin_us": 10,
+  "note": "Heuristic timing evidence only. RGB identity assumes the recording starts before the first red stage.",
+  "earlier_ambiguous_activity_groups_in_block": 10,
+  "first_onset_after_sync_us": 1072950,
+  "cycle_recurrence_passed": false,
+  "cycle_correlations": [
+    -0.06384948448065399,
+    -0.2378005998020234
+  ],
+  "cycle_correlation_minimum": 0.3,
+  "cycle_envelope_bin_us": 500,
+  "configured_RGB_cycle_us": 31500,
+  "cycle_recurrence_note": "Adjacent log ON/OFF envelopes; necessary evidence only, not hardware synchronisation.",
+  "local_flash_check_passed": true
+}

@@ -1,0 +1,194 @@
+{
+  "scope": "offline artifact validation plus documented manual static analysis; no board I/O",
+  "hex_file": "/Users/shrey/git/event-camera-colour-reconstruction/arduino_original_backup.hex",
+  "hex_sha256": "5db94ba5ccb05123a765252579955536c032fdc4a0ddc6a79d7e06813b32f752",
+  "disassembly_file": "/Users/shrey/git/event-camera-colour-reconstruction/arduino_original_disassembly.txt",
+  "disassembly_sha256": "6e0da82a0ceb3674618b779985bef84e5260cadf910adff17eb92907749922cc",
+  "audit_source_sha256": "ba3f0afa6c52aa75a08afbc98758f28b6b6a7cddf580daee0290fff9487cbd29",
+  "intel_hex_records": {
+    "0": 1024,
+    "1": 1
+  },
+  "flash_bytes": 32768,
+  "listed_bytes_checked": 32756,
+  "unlisted_flash_byte_count": 12,
+  "listed_bytes_all_match": true,
+  "decoded_flash_sha256": "b21a1cd5478c52c0542828d5640abbf2ef0f61a5e64a6564cf7789c631facb9b",
+  "manual_function_labels": {
+    "0x10e": "pinMode-output specialization",
+    "0x14c": "digitalWrite",
+    "0x1e4": "analogWrite",
+    "0x29c": "micros",
+    "0x500": "set all three channels to zero",
+    "0x51e": "clamped single-pin analogWrite",
+    "0x536": "write scaled nonzero channels",
+    "0x5e0": "one elapsed-time ramp plus dark wait",
+    "0x810": "initialisation and repeated stages"
+  },
+  "findings": {
+    "ramp_timebase": "micros elapsed-time threshold, not delay-per-duty-step",
+    "ramp_target_us": 500,
+    "dark_wait_target_us": 500,
+    "startup_wait_target_us": 1000000,
+    "ramp_level_formula": "floor(elapsed_us * 255 / 500) for elapsed_us < 500",
+    "update_schedule": "next eligible update = previously sampled elapsed_us + 1; instruction costs and clock quantisation still apply",
+    "terminal_level": 255,
+    "explicit_terminal_hold_us": 0,
+    "pin_sequence": [
+      9,
+      10,
+      11
+    ],
+    "physical_pin_colour_mapping_verified": false,
+    "nominal_RGB_budget_us_excluding_overhead": 3000,
+    "timer_modes": "8-bit phase-correct on Timer1/2 under standard reset-state assumptions",
+    "timer_prescaler": 64,
+    "assumed_clock_hz": 16000000,
+    "nominal_PWM_period_us": 2040,
+    "nominal_PWM_hz": 490.19607843137254,
+    "micros_quantum_us_for_standard_16MHz_clock": 4,
+    "active_loop_command_parser_found": false
+  },
+  "limitations": [
+    "Not an electrical/optical measurement or cycle-accurate execution simulation",
+    "Actual oscillator/fuses/driver polarity/LED response not established by flash artifact",
+    "Nominal waits exclude software overhead and possible ramp-loop overrun",
+    "No historical DAT-to-firmware provenance",
+    "No board communication or firmware changes"
+  ],
+  "instruction_anchors": {
+    "ramp_limit_low_500": {
+      "address": "0x062c",
+      "line": 716,
+      "bytes": "24 ef",
+      "instruction": "ldi\tr18, 0xF4\t; 244",
+      "original": "     62c:\t24 ef       \tldi\tr18, 0xF4\t; 244"
+    },
+    "ramp_limit_high_500": {
+      "address": "0x0630",
+      "line": 718,
+      "bytes": "21 e0",
+      "instruction": "ldi\tr18, 0x01\t; 1",
+      "original": "     630:\t21 e0       \tldi\tr18, 0x01\t; 1"
+    },
+    "exit_ramp_at_elapsed_limit": {
+      "address": "0x0638",
+      "line": 722,
+      "bytes": "f0 f4",
+      "instruction": "brcc\t.+60     \t;  0x676",
+      "original": "     638:\tf0 f4       \tbrcc\t.+60     \t;  0x676"
+    },
+    "scale_elapsed_divisor_low_500": {
+      "address": "0x0650",
+      "line": 733,
+      "bytes": "24 ef",
+      "instruction": "ldi\tr18, 0xF4\t; 244",
+      "original": "     650:\t24 ef       \tldi\tr18, 0xF4\t; 244"
+    },
+    "scale_elapsed_divisor_high_500": {
+      "address": "0x0652",
+      "line": 734,
+      "bytes": "31 e0",
+      "instruction": "ldi\tr19, 0x01\t; 1",
+      "original": "     652:\t31 e0       \tldi\tr19, 0x01\t; 1"
+    },
+    "next_update_increment_one_low_byte": {
+      "address": "0x066a",
+      "line": 744,
+      "bytes": "8f ef",
+      "instruction": "ldi\tr24, 0xFF\t; 255",
+      "original": "     66a:\t8f ef       \tldi\tr24, 0xFF\t; 255"
+    },
+    "repeat_ramp_clock_loop": {
+      "address": "0x0674",
+      "line": 749,
+      "bytes": "d3 cf",
+      "instruction": "rjmp\t.-90     \t;  0x61c",
+      "original": "     674:\td3 cf       \trjmp\t.-90     \t;  0x61c"
+    },
+    "terminal_level_255": {
+      "address": "0x0676",
+      "line": 750,
+      "bytes": "2f ef",
+      "instruction": "ldi\tr18, 0xFF\t; 255",
+      "original": "     676:\t2f ef       \tldi\tr18, 0xFF\t; 255"
+    },
+    "clear_immediately_after_terminal_write": {
+      "address": "0x0684",
+      "line": 756,
+      "bytes": "0e 94 80 02",
+      "instruction": "call\t0x500\t;  0x500",
+      "original": "     684:\t0e 94 80 02 \tcall\t0x500\t;  0x500"
+    },
+    "dark_limit_low_500": {
+      "address": "0x069c",
+      "line": 765,
+      "bytes": "64 3f",
+      "instruction": "cpi\tr22, 0xF4\t; 244",
+      "original": "     69c:\t64 3f       \tcpi\tr22, 0xF4\t; 244"
+    },
+    "dark_limit_high_500": {
+      "address": "0x069e",
+      "line": 766,
+      "bytes": "71 40",
+      "instruction": "sbci\tr23, 0x01\t; 1",
+      "original": "     69e:\t71 40       \tsbci\tr23, 0x01\t; 1"
+    },
+    "repeat_dark_clock_loop": {
+      "address": "0x06a4",
+      "line": 769,
+      "bytes": "a8 f3",
+      "instruction": "brcs\t.-22     \t;  0x690",
+      "original": "     6a4:\ta8 f3       \tbrcs\t.-22     \t;  0x690"
+    },
+    "startup_delay_low": {
+      "address": "0x092a",
+      "line": 1020,
+      "bytes": "60 34",
+      "instruction": "cpi\tr22, 0x40\t; 64",
+      "original": "     92a:\t60 34       \tcpi\tr22, 0x40\t; 64"
+    },
+    "startup_delay_middle": {
+      "address": "0x092c",
+      "line": 1021,
+      "bytes": "72 44",
+      "instruction": "sbci\tr23, 0x42\t; 66",
+      "original": "     92c:\t72 44       \tsbci\tr23, 0x42\t; 66"
+    },
+    "startup_delay_high": {
+      "address": "0x092e",
+      "line": 1022,
+      "bytes": "8f 40",
+      "instruction": "sbci\tr24, 0x0F\t; 15",
+      "original": "     92e:\t8f 40       \tsbci\tr24, 0x0F\t; 15"
+    },
+    "stage_9_call": {
+      "address": "0x0944",
+      "line": 1033,
+      "bytes": "0e 94 f0 02",
+      "instruction": "call\t0x5e0\t;  0x5e0",
+      "original": "     944:\t0e 94 f0 02 \tcall\t0x5e0\t;  0x5e0"
+    },
+    "stage_10_call": {
+      "address": "0x0954",
+      "line": 1040,
+      "bytes": "0e 94 f0 02",
+      "instruction": "call\t0x5e0\t;  0x5e0",
+      "original": "     954:\t0e 94 f0 02 \tcall\t0x5e0\t;  0x5e0"
+    },
+    "stage_11_call": {
+      "address": "0x0964",
+      "line": 1047,
+      "bytes": "0e 94 f0 02",
+      "instruction": "call\t0x5e0\t;  0x5e0",
+      "original": "     964:\t0e 94 f0 02 \tcall\t0x5e0\t;  0x5e0"
+    },
+    "unconditional_in_practice_main_repeat_zero_test": {
+      "address": "0x096e",
+      "line": 1050,
+      "bytes": "21 f3",
+      "instruction": "breq\t.-56     \t;  0x938",
+      "original": "     96e:\t21 f3       \tbreq\t.-56     \t;  0x938"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+source line   681:      5e0:	2f 92       	push	r2
+source line   682:      5e2:	3f 92       	push	r3
+source line   683:      5e4:	4f 92       	push	r4
+source line   684:      5e6:	5f 92       	push	r5
+source line   685:      5e8:	6f 92       	push	r6
+source line   686:      5ea:	7f 92       	push	r7
+source line   687:      5ec:	8f 92       	push	r8
+source line   688:      5ee:	9f 92       	push	r9
+source line   689:      5f0:	af 92       	push	r10
+source line   690:      5f2:	bf 92       	push	r11
+source line   691:      5f4:	cf 92       	push	r12
+source line   692:      5f6:	df 92       	push	r13
+source line   693:      5f8:	ef 92       	push	r14
+source line   694:      5fa:	ff 92       	push	r15
+source line   695:      5fc:	0f 93       	push	r16
+source line   696:      5fe:	1f 93       	push	r17
+source line   697:      600:	cf 93       	push	r28
+source line   698:      602:	df 93       	push	r29
+source line   699:      604:	1c 01       	movw	r2, r24
+source line   700:      606:	8b 01       	movw	r16, r22
+source line   701:      608:	ea 01       	movw	r28, r20
+source line   702:      60a:	0e 94 80 02 	call	0x500	;  0x500
+source line   703:      60e:	0e 94 4e 01 	call	0x29c	;  0x29c
+source line   704:      612:	2b 01       	movw	r4, r22
+source line   705:      614:	3c 01       	movw	r6, r24
+source line   706:      616:	81 2c       	mov	r8, r1
+source line   707:      618:	91 2c       	mov	r9, r1
+source line   708:      61a:	54 01       	movw	r10, r8
+source line   709:      61c:	0e 94 4e 01 	call	0x29c	;  0x29c
+source line   710:      620:	6b 01       	movw	r12, r22
+source line   711:      622:	7c 01       	movw	r14, r24
+source line   712:      624:	c4 18       	sub	r12, r4
+source line   713:      626:	d5 08       	sbc	r13, r5
+source line   714:      628:	e6 08       	sbc	r14, r6
+source line   715:      62a:	f7 08       	sbc	r15, r7
+source line   716:      62c:	24 ef       	ldi	r18, 0xF4	; 244
+source line   717:      62e:	c2 16       	cp	r12, r18
+source line   718:      630:	21 e0       	ldi	r18, 0x01	; 1
+source line   719:      632:	d2 06       	cpc	r13, r18
+source line   720:      634:	e1 04       	cpc	r14, r1
+source line   721:      636:	f1 04       	cpc	r15, r1
+source line   722:      638:	f0 f4       	brcc	.+60     	;  0x676
+source line   723:      63a:	c8 14       	cp	r12, r8
+source line   724:      63c:	d9 04       	cpc	r13, r9
+source line   725:      63e:	ea 04       	cpc	r14, r10
+source line   726:      640:	fb 04       	cpc	r15, r11
+source line   727:      642:	60 f3       	brcs	.-40     	;  0x61c
+source line   728:      644:	af ef       	ldi	r26, 0xFF	; 255
+source line   729:      646:	b0 e0       	ldi	r27, 0x00	; 0
+source line   730:      648:	a7 01       	movw	r20, r14
+source line   731:      64a:	96 01       	movw	r18, r12
+source line   732:      64c:	0e 94 4b 05 	call	0xa96	;  0xa96
+source line   733:      650:	24 ef       	ldi	r18, 0xF4	; 244
+source line   734:      652:	31 e0       	ldi	r19, 0x01	; 1
+source line   735:      654:	40 e0       	ldi	r20, 0x00	; 0
+source line   736:      656:	50 e0       	ldi	r21, 0x00	; 0
+source line   737:      658:	0e 94 ec 04 	call	0x9d8	;  0x9d8
+source line   738:      65c:	ae 01       	movw	r20, r28
+source line   739:      65e:	b8 01       	movw	r22, r16
+source line   740:      660:	c1 01       	movw	r24, r2
+source line   741:      662:	0e 94 9b 02 	call	0x536	;  0x536
+source line   742:      666:	46 01       	movw	r8, r12
+source line   743:      668:	57 01       	movw	r10, r14
+source line   744:      66a:	8f ef       	ldi	r24, 0xFF	; 255
+source line   745:      66c:	88 1a       	sub	r8, r24
+source line   746:      66e:	98 0a       	sbc	r9, r24
+source line   747:      670:	a8 0a       	sbc	r10, r24
+source line   748:      672:	b8 0a       	sbc	r11, r24
+source line   749:      674:	d3 cf       	rjmp	.-90     	;  0x61c
+source line   750:      676:	2f ef       	ldi	r18, 0xFF	; 255
+source line   751:      678:	30 e0       	ldi	r19, 0x00	; 0
+source line   752:      67a:	ae 01       	movw	r20, r28
+source line   753:      67c:	b8 01       	movw	r22, r16
+source line   754:      67e:	c1 01       	movw	r24, r2
+source line   755:      680:	0e 94 9b 02 	call	0x536	;  0x536
+source line   756:      684:	0e 94 80 02 	call	0x500	;  0x500
+source line   757:      688:	0e 94 4e 01 	call	0x29c	;  0x29c
+source line   758:      68c:	6b 01       	movw	r12, r22
+source line   759:      68e:	7c 01       	movw	r14, r24
+source line   760:      690:	0e 94 4e 01 	call	0x29c	;  0x29c
+source line   761:      694:	6c 19       	sub	r22, r12
+source line   762:      696:	7d 09       	sbc	r23, r13
+source line   763:      698:	8e 09       	sbc	r24, r14
+source line   764:      69a:	9f 09       	sbc	r25, r15
+source line   765:      69c:	64 3f       	cpi	r22, 0xF4	; 244
+source line   766:      69e:	71 40       	sbci	r23, 0x01	; 1
+source line   767:      6a0:	81 05       	cpc	r24, r1
+source line   768:      6a2:	91 05       	cpc	r25, r1
+source line   769:      6a4:	a8 f3       	brcs	.-22     	;  0x690
+source line   770:      6a6:	df 91       	pop	r29
+source line   771:      6a8:	cf 91       	pop	r28
+source line   772:      6aa:	1f 91       	pop	r17
+source line   773:      6ac:	0f 91       	pop	r16
+source line   774:      6ae:	ff 90       	pop	r15
+source line   775:      6b0:	ef 90       	pop	r14
+source line   776:      6b2:	df 90       	pop	r13
+source line   777:      6b4:	cf 90       	pop	r12
+source line   778:      6b6:	bf 90       	pop	r11
+source line   779:      6b8:	af 90       	pop	r10
+source line   780:      6ba:	9f 90       	pop	r9
+source line   781:      6bc:	8f 90       	pop	r8
+source line   782:      6be:	7f 90       	pop	r7
+source line   783:      6c0:	6f 90       	pop	r6
+source line   784:      6c2:	5f 90       	pop	r5
+source line   785:      6c4:	4f 90       	pop	r4
+source line   786:      6c6:	3f 90       	pop	r3
+source line   787:      6c8:	2f 90       	pop	r2
+source line   788:      6ca:	08 95       	ret

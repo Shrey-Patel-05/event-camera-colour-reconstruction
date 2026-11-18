@@ -1,0 +1,262 @@
+{
+  "cases": [
+    {
+      "recording": "1ms_2s",
+      "dat": "/Users/shrey/git/event-camera-colour-reconstruction/data/1ms_2s.dat",
+      "dat_bytes": 5876325748,
+      "first_DAT_timestamp_us": 2363,
+      "header_lines": [
+        "% Data file containing CD events",
+        "% Date 2026-08-06 16:16:02",
+        "% Version 2",
+        "% Width 1280",
+        "% Height 720"
+      ],
+      "events": 734540706,
+      "duration_us": 17485637,
+      "timing": {
+        "num_rgb_repeats": 3,
+        "fade_duration_us": 1000,
+        "peak_apply_time_us": 0,
+        "dark_interval_us": 500,
+        "flash_period_us": 1500,
+        "cycle_extra_delay_us": 0,
+        "sync_offset_us": 0,
+        "response_delay_us": 0,
+        "response_window_us": 1000,
+        "flash_detection_bin_us": 10,
+        "first_red_baseline_us": 1000,
+        "timing_min_flash_score": 2.5,
+        "timing_min_sequence_score": 5.0,
+        "timing_min_supported_fraction": 0.6666666666666666,
+        "timing_max_startup_score": 3.0,
+        "timing_edge_guard_us": 50
+      },
+      "saved_run": "/Users/shrey/git/event-camera-colour-reconstruction/new_led_full_recording_results/1ms_2s/20261022_141535_799356",
+      "archived_name": "/Users/shrey/git/event-camera-colour-reconstruction/data/1ms_2s.dat",
+      "detector_reproduced": true,
+      "detector_rerun_this_experiment": true,
+      "PSEE_global_counts_match_every_saved_1ms_bin": true,
+      "PSEE_stage_counts_match_existing_counter": true,
+      "native_100ms_response_reproduction": null,
+      "invalid_spatial_events": 0
+    },
+    {
+      "recording": "10ms_4s",
+      "dat": "/Users/shrey/git/event-camera-colour-reconstruction/data/10ms_4s.dat",
+      "dat_bytes": 6957420612,
+      "first_DAT_timestamp_us": 1835,
+      "header_lines": [
+        "% Data file containing CD events",
+        "% Date 2026-08-06 16:15:15",
+        "% Version 2",
+        "% Width 1280",
+        "% Height 720"
+      ],
+      "events": 869677564,
+      "duration_us": 17908185,
+      "timing": {
+        "num_rgb_repeats": 3,
+        "fade_duration_us": 10000,
+        "peak_apply_time_us": 0,
+        "dark_interval_us": 500,
+        "flash_period_us": 10500,
+        "cycle_extra_delay_us": 0,
+        "sync_offset_us": 0,
+        "response_delay_us": 0,
+        "response_window_us": 10000,
+        "flash_detection_bin_us": 10,
+        "first_red_baseline_us": 1000,
+        "timing_min_flash_score": 2.5,
+        "timing_min_sequence_score": 5.0,
+        "timing_min_supported_fraction": 0.6666666666666666,
+        "timing_max_startup_score": 3.0,
+        "timing_edge_guard_us": 50
+      },
+      "saved_run": "/Users/shrey/git/event-camera-colour-reconstruction/new_led_full_recording_results/10ms_4s/20261022_125050_727915",
+      "archived_name": "/Users/shrey/git/event-camera-colour-reconstruction/data/10ms_4s.dat",
+      "detector_reproduced": true,
+      "detector_rerun_this_experiment": false,
+      "PSEE_global_counts_match_every_saved_1ms_bin": true,
+      "PSEE_stage_counts_match_existing_counter": true,
+      "native_100ms_response_reproduction": null,
+      "invalid_spatial_events": 0
+    },
+    {
+      "recording": "100ms_10s",
+      "dat": "/Users/shrey/git/event-camera-colour-reconstruction/data/100ms_10s.dat",
+      "dat_bytes": 1865991564,
+      "first_DAT_timestamp_us": 2248,
+      "header_lines": [
+        "% Data file containing CD events",
+        "% Date 2026-08-06 16:14:31",
+        "% Version 2",
+        "% Width 1280",
+        "% Height 720"
+      ],
+      "events": 233248933,
+      "duration_us": 21949752,
+      "timing": {
+        "num_rgb_repeats": 3,
+        "fade_duration_us": 100000,
+        "peak_apply_time_us": 0,
+        "dark_interval_us": 500,
+        "flash_period_us": 100500,
+        "cycle_extra_delay_us": 0,
+        "sync_offset_us": 0,
+        "response_delay_us": 0,
+        "response_window_us": 100000,
+        "flash_detection_bin_us": 10,
+        "first_red_baseline_us": 1000,
+        "timing_min_flash_score": 2.5,
+        "timing_min_sequence_score": 5.0,
+        "timing_min_supported_fraction": 0.6666666666666666,
+        "timing_max_startup_score": 3.0,
+        "timing_edge_guard_us": 50
+      },
+      "saved_run": "/Users/shrey/git/event-camera-colour-reconstruction/new_led_full_recording_results/example/20261021_174732_769337",
+      "archived_name": "data/example.dat",
+      "detector_reproduced": true,
+      "detector_rerun_this_experiment": true,
+      "PSEE_global_counts_match_every_saved_1ms_bin": true,
+      "PSEE_stage_counts_match_existing_counter": true,
+      "native_100ms_response_reproduction": {
+        "rows": 9,
+        "numeric_fields": 108,
+        "max_absolute_error": 0.0
+      },
+      "invalid_spatial_events": 0
+    }
+  ],
+  "shared_polygon": [
+    [
+      428,
+      218
+    ],
+    [
+      448,
+      76
+    ],
+    [
+      529,
+      33
+    ],
+    [
+      610,
+      32
+    ],
+    [
+      695,
+      32
+    ],
+    [
+      769,
+      32
+    ],
+    [
+      867,
+      32
+    ],
+    [
+      932,
+      41
+    ],
+    [
+      975,
+      41
+    ],
+    [
+      984,
+      52
+    ],
+    [
+      997,
+      96
+    ],
+    [
+      997,
+      117
+    ],
+    [
+      994,
+      135
+    ],
+    [
+      990,
+      160
+    ],
+    [
+      983,
+      169
+    ],
+    [
+      975,
+      192
+    ],
+    [
+      965,
+      207
+    ],
+    [
+      930,
+      241
+    ],
+    [
+      917,
+      273
+    ],
+    [
+      899,
+      300
+    ],
+    [
+      881,
+      319
+    ],
+    [
+      860,
+      344
+    ],
+    [
+      837,
+      356
+    ],
+    [
+      827,
+      362
+    ],
+    [
+      764,
+      439
+    ],
+    [
+      707,
+      469
+    ]
+  ],
+  "shared_polygon_source": "/Users/shrey/git/event-camera-colour-reconstruction/new_led_full_recording_results/example/20261021_174732_769337/analysis_metadata.json",
+  "original_1ms_ROI_coordinates_unavailable": true,
+  "original_10ms_ROI1_area": 188526,
+  "shared_area": 169996,
+  "source_sha256": {
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_recording_comparison.py": "bc120d3d2951bf6ce5dbe6e86da5a820be3635f752e806d64af6e770dca2e0d5",
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_roi_consistency.py": "fb6e3130799a0300189b9f2185ea7835e234f495dcbeececd8c352bc9f368a10",
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_raw_diagnostic.py": "b1822ac66dcd7cba685f355b53d6282b66e2e1ced4894ecbe79b5439271263df",
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_duration_experiment.py": "52e2fa8098348aefb8256bf3607cbed4bbeb75fe7c431b364ca59cbcb7e7e939",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/colour_mapping.py": "40228ebbc8f0a8ce57b878680a12a72acb7612c69d12231af055c1e554f45725",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/dat_decoder.py": "86fc0577b4d323fe080f39df5d5bfdf255fc93c0155610f2f2b09da949af7cca",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/flash_detection.py": "dc109ec896c7ba1e27ef75223a551c070a8f915c18e07c214ba373e118d50e4b",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/roi_analysis.py": "95c2921ee359aa21ec0a7ea42b8913ed1d97093b16f373fa2ecac212d5aa1308",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/temporal_alignment.py": "4d0d3e5478fbe99757e612201341e1ba205e141d422e67018329a318a0edc1d3",
+    "/Users/shrey/git/prophesee-automotive-dataset-toolbox/src/io/psee_loader.py": "ecaf0039d929b14bc358f8f056d2033d928af4793efc4a0908a7ba32f771f816",
+    "/Users/shrey/git/prophesee-automotive-dataset-toolbox/src/io/dat_events_tools.py": "62c2dfb9aa24d16cccdecb59adee26c9918c6dc87602312196b75cb8327b8877"
+  },
+  "command": [
+    "/opt/anaconda3/bin/python3",
+    "run_recording_comparison.py",
+    "--output",
+    "diagnostics/experiment_2a",
+    "--sensitivity"
+  ],
+  "git_revision": "0bbfc765f7035e3c1079af8e91136a63e2fe3221"
+}

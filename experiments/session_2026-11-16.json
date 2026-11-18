@@ -1,0 +1,289 @@
+{
+  "schema_version": 3,
+  "session_id": "2026-11-16",
+  "status": "final_agreed_21_recordings_unrecorded",
+  "protocol": "docs/recording_plan_2026-11-16.md",
+  "supersedes": [
+    "experiments/fixed_firmware_schedule.json",
+    "experiments/recording_campaign_schedule.json"
+  ],
+  "timing_units": "microseconds",
+  "timing_reference": "commanded deadline targets; not independently measured GPIO or optical timestamps",
+  "selected_condition": null,
+  "selected_condition_allowed": [
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "minimum_measurement_us": 3000000,
+  "minimum_rgb_cycles": 100,
+  "single_channel_pulses": 100,
+  "dark_control_us": 5000000,
+  "pre_dark_us": 1000000,
+  "settle_dark_us": 500000,
+  "post_dark_us": 1000000,
+  "preamble": [
+    {
+      "colour": "R",
+      "on_us": 20000,
+      "off_us": 20000
+    },
+    {
+      "colour": "G",
+      "on_us": 40000,
+      "off_us": 20000
+    },
+    {
+      "colour": "B",
+      "on_us": 80000,
+      "off_us": 20000
+    }
+  ],
+  "profiles": {
+    "S": {
+      "on_us": 10000,
+      "off_us": 20000
+    },
+    "T1": {
+      "on_us": 1000,
+      "off_us": 500
+    },
+    "T2": {
+      "on_us": 1000,
+      "off_us": 5000
+    },
+    "T3": {
+      "on_us": 5000,
+      "off_us": 5000
+    }
+  },
+  "irregular": {
+    "slots": 300,
+    "seeds": [
+      2026111601,
+      2026111602
+    ],
+    "generator": "xorshift32-v1: shuffle RGB per triple, one omitted slot per 10-slot block, gaps chosen from multipliers",
+    "gap_multipliers": [
+      1,
+      2,
+      4
+    ],
+    "minimum_base_gap_us": 5000,
+    "base_gap_rule": "max(selected T off_us, minimum_base_gap_us)",
+    "on_rule": "selected T on_us; omitted slots keep the entire on-slot dark"
+  },
+  "original_firmware": {
+    "file": "arduino_original_backup.hex",
+    "sha256": "5db94ba5ccb05123a765252579955536c032fdc4a0ddc6a79d7e06813b32f752",
+    "audit": "docs/arduino_firmware_audit.md",
+    "historical_recording_provenance": "not established for every old DAT"
+  },
+  "runs": [
+    {
+      "id": "L1",
+      "experiment": "L",
+      "mode": "legacy",
+      "layout": "A",
+      "motion": "stationary",
+      "firmware_identity": "reconstructed_original_firmware",
+      "exact_binary_reproduction": false
+    },
+    {
+      "id": "L2",
+      "experiment": "L",
+      "mode": "legacy",
+      "layout": "A",
+      "motion": "stationary",
+      "firmware_identity": "reconstructed_original_firmware",
+      "exact_binary_reproduction": false
+    },
+    {
+      "id": "N1",
+      "experiment": "N",
+      "mode": "off",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "N2",
+      "experiment": "N",
+      "mode": "off",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "SR",
+      "experiment": "S",
+      "mode": "single",
+      "colour": "R",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "SG",
+      "experiment": "S",
+      "mode": "single",
+      "colour": "G",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "SB",
+      "experiment": "S",
+      "mode": "single",
+      "colour": "B",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "T1",
+      "experiment": "T1",
+      "mode": "fixed",
+      "profile": "T1",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "T2",
+      "experiment": "T2",
+      "mode": "fixed",
+      "profile": "T2",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "T3",
+      "experiment": "T3",
+      "mode": "fixed",
+      "profile": "T3",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "CA1",
+      "experiment": "C-A",
+      "mode": "selected",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "CA2",
+      "experiment": "C-A",
+      "mode": "selected",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "CA3",
+      "experiment": "C-A",
+      "mode": "selected",
+      "layout": "A",
+      "motion": "stationary"
+    },
+    {
+      "id": "CB1",
+      "experiment": "C-B",
+      "mode": "selected",
+      "layout": "B",
+      "motion": "stationary"
+    },
+    {
+      "id": "CB2",
+      "experiment": "C-B",
+      "mode": "selected",
+      "layout": "B",
+      "motion": "stationary"
+    },
+    {
+      "id": "D",
+      "experiment": "D",
+      "mode": "selected",
+      "layout": "A_restored",
+      "motion": "stationary"
+    },
+    {
+      "id": "J1",
+      "experiment": "J",
+      "mode": "irregular",
+      "sequence": 0,
+      "layout": "A_restored",
+      "motion": "stationary"
+    },
+    {
+      "id": "J2",
+      "experiment": "J",
+      "mode": "irregular",
+      "sequence": 1,
+      "layout": "A_restored",
+      "motion": "stationary"
+    },
+    {
+      "id": "M1",
+      "experiment": "M",
+      "mode": "off",
+      "layout": "A_restored",
+      "motion": "separate_object_moving"
+    },
+    {
+      "id": "M2",
+      "experiment": "M",
+      "mode": "selected",
+      "layout": "A_restored",
+      "motion": "separate_object_stationary"
+    },
+    {
+      "id": "M3",
+      "experiment": "M",
+      "mode": "selected",
+      "layout": "A_restored",
+      "motion": "separate_object_moving"
+    }
+  ],
+  "legacy_reconstruction": {
+    "identity": "reconstructed_original_firmware",
+    "exact_binary_reproduction": false,
+    "source_evidence": [
+      "docs/arduino_firmware_audit.md",
+      "arduino_original_disassembly.txt"
+    ],
+    "startup_dark_us": 1000000,
+    "measurement_min_us": 5000000,
+    "ramp_us": 500,
+    "zero_command_us": 500,
+    "next_update_increment_us": 1,
+    "stage_pin_order": [
+      9,
+      10,
+      11
+    ],
+    "stage_colour_order": [
+      "R",
+      "G",
+      "B"
+    ],
+    "brightness_formula": "floor(elapsed_us * 255 / 500)",
+    "ramp_update_rule": "update when elapsed_us >= previous_sampled_elapsed_us + 1; stop when elapsed_us >= 500",
+    "endpoint": "request 255, immediately clear D9/D10/D11 to zero; no hold and no ramp-down",
+    "pwm": {
+      "timer1": "8-bit phase-correct, prescaler 64, D9=OC1A D10=OC1B",
+      "timer2": "8-bit phase-correct, prescaler 64, D11=OC2A",
+      "nominal_cpu_hz": 16000000,
+      "nominal_period_us": 2040,
+      "intermediate_values": "Arduino AVR analogWrite hardware PWM",
+      "zero_and_255": "Arduino AVR analogWrite digital LOW/HIGH endpoints",
+      "timer_counters_reset": false,
+      "relative_phase_established": false
+    },
+    "start_marker": false,
+    "original_repetition": "continuous D9 -> D10 -> D11; clear all channels after each RGB cycle",
+    "recording_wrapper": "repeat complete RGB cycles for at least measurement_min_us, then stop all-off and report actual count/elapsed time",
+    "schedule_kind": "elapsed_time_recipe_not_absolute_edge_timestamps",
+    "limitations": [
+      "Not the original binary; compiler/core/call overhead and update samples differ.",
+      "Finite run and serial-command interface are added; original main loop was continuous.",
+      "PWM carrier phase and actual optical waveform are unmeasured.",
+      "Minimum nominal duration is not a fixed stage cadence or an optical timestamp."
+    ]
+  }
+}

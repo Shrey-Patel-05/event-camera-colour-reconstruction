@@ -1,5 +1,7 @@
 # Event-Based Colour Response Analysis and Pseudo-Colour Reconstruction
 
+Current recording session: [final 21-recording plan](docs/recording_plan_2026-11-16.md), [lab checklist](docs/recording_checklist_2026-11-16.md), and [selectable Arduino firmware](arduino/README.md). Earlier campaign schedules are superseded for this session.
+
 This repository documents my 2026 summer research project at the **University of Manchester**, investigating colour-related event responses and pseudo-colour reconstruction using a monochrome event camera under sequential RGB illumination.
 
 The project explores whether relative colour information can be extracted from asynchronous event measurements by analysing the sensor response to controlled **red, green, and blue illumination**.

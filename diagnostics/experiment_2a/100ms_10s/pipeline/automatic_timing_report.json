@@ -1,0 +1,49 @@
+{
+  "automatic_timing_passed": true,
+  "supported_flashes": 8,
+  "required_supported_flashes": 6,
+  "rank_score": 8.988519032038091,
+  "sequence_ON_score": -6.004513397706659,
+  "sequence_OFF_score": 8.909872115252409,
+  "startup_activity_score": -0.2518544428781977,
+  "startup_transition_score": 5.644670370068492,
+  "quiet_before_us": 301500,
+  "source": "full_recording_automatic_first_activity_fixed_RGB_check",
+  "first_onset_before_sync_us": 10806040,
+  "near_best_start_range_us": [
+    10806040,
+    10806050
+  ],
+  "phase_score_width_us": 20,
+  "phase_score_width_limit_us": 250,
+  "bin_us": 10,
+  "note": "Heuristic timing evidence only. RGB identity assumes the recording starts before the first red stage.",
+  "earlier_ambiguous_activity_groups_in_block": 0,
+  "first_onset_after_sync_us": 10806040,
+  "fine_block_origin_after_read_us": 10497500,
+  "flash_period_us": 100500,
+  "fade_duration_us": 100000,
+  "dark_interval_us": 500,
+  "recording": {
+    "retained_event_span_us": 21949751,
+    "available_end_after_read_us": 21949752,
+    "events": 233248933,
+    "ON": 122081307,
+    "OFF": 111167626,
+    "overview_bin_us": 1000,
+    "max_interevent_gap_us": 415,
+    "gap_between_events_after_read_us": [
+      0,
+      415
+    ],
+    "note": "Whole-file coarse overview. Quiet bins are retained and are not used as a local peak locator."
+  },
+  "first_red_search_duration_us": null,
+  "search_last_eligible_onset_us": 21045252,
+  "fine_blocks_checked": 12,
+  "timing_basis": "Configured fixed timing; no independent per-flash peak shifts.",
+  "sync_offset_us": 0,
+  "cycle_extra_delay_us": 0,
+  "response_delay_us": 0,
+  "response_window_us": 100000
+}

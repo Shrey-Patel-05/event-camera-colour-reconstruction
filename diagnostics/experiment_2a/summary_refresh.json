@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/opt/anaconda3/bin/python3",
+    "run_recording_comparison.py",
+    "--output",
+    "diagnostics/experiment_2a",
+    "--summarize-existing"
+  ],
+  "summary_source_sha256": "c1f67f22f6095b6668ea70e901361c55ab0fedf936a53b58093d73e6f0f231b5",
+  "input_sha256": {
+    "diagnostics/experiment_2a/comparison.csv": "b72513d4ef6d62eec9384d25dd2ea49466b87200f8a74716925e3d915878a765",
+    "diagnostics/experiment_2a/estimator_comparison.csv": "1931bfbe0029ea2361365fab9ed9ca282d3ab8dc7c35bc328537652e8ef1011a",
+    "diagnostics/experiment_2a/sensitivity_vectors.csv": "7d15ffd4053ddcaca9f5ac95fb110875401c4c6248578c7ab462caced776f7fb"
+  },
+  "original_analysis_source_snapshot": "analysis_source_snapshot.py, if present; evidence.json retains original run hashes"
+}

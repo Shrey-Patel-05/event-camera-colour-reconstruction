@@ -1,0 +1,81 @@
+{
+  "events": 869677564,
+  "saved_R1_after_file_first_us": 8520454,
+  "configured_cycle_check": {
+    "cycle_recurrence_passed": false,
+    "cycle_correlations": [
+      -0.06525385456342962,
+      -0.23634261435779627
+    ],
+    "cycle_correlation_minimum": 0.3,
+    "cycle_envelope_bin_us": 500,
+    "configured_RGB_cycle_us": 31500,
+    "cycle_recurrence_note": "Adjacent log ON/OFF envelopes; necessary evidence only, not hardware synchronisation."
+  },
+  "first_activity_10500us_schedule_check": {
+    "cycle_recurrence_passed": false,
+    "cycle_correlations": [
+      -0.1700141119385196,
+      -0.10502532157258104
+    ],
+    "cycle_correlation_minimum": 0.3,
+    "cycle_envelope_bin_us": 500,
+    "configured_RGB_cycle_us": 31500,
+    "cycle_recurrence_note": "Adjacent log ON/OFF envelopes; necessary evidence only, not hardware synchronisation."
+  },
+  "PWM_like_spike_recurrence_us": 2120,
+  "recurrence_by_recording_section": [
+    {
+      "start_us": 4700000,
+      "end_us": 5700000,
+      "best_recurrence_us": 100000,
+      "best_correlation": 0.8901302970396201,
+      "configured_31500us_correlation": -0.282763784693953,
+      "refined_recurrence_us": 100100
+    },
+    {
+      "start_us": 6000000,
+      "end_us": 7000000,
+      "best_recurrence_us": 100000,
+      "best_correlation": 0.8962972988004059,
+      "configured_31500us_correlation": -0.26791492040584586,
+      "refined_recurrence_us": 100100
+    },
+    {
+      "start_us": 8500000,
+      "end_us": 9500000,
+      "best_recurrence_us": 100000,
+      "best_correlation": 0.9064659969660734,
+      "configured_31500us_correlation": -0.2676290530360298,
+      "refined_recurrence_us": 100100
+    },
+    {
+      "start_us": 12000000,
+      "end_us": 13000000,
+      "best_recurrence_us": 100000,
+      "best_correlation": 0.9037451127745711,
+      "configured_31500us_correlation": -0.2797969702328908,
+      "refined_recurrence_us": 100100
+    },
+    {
+      "start_us": 16000000,
+      "end_us": 17000000,
+      "best_recurrence_us": 100000,
+      "best_correlation": 0.8981002771398007,
+      "configured_31500us_correlation": -0.266749734235727,
+      "refined_recurrence_us": 100100
+    }
+  ],
+  "status_after_correction": "Reject unsupported timing; do not assign RGB",
+  "uncertainties": [
+    "Event envelopes are not LED command timestamps",
+    "No controller log or independently identified colour reference",
+    "100 ms recurrence does not establish individual RGB durations or dark gaps"
+  ],
+  "exact_saved_block_cycle_correlations": [
+    -0.06384948448065399,
+    -0.2378005998020234
+  ],
+  "before_median_ROI_colour_ON_CV_percent": 135.2539204059737,
+  "after_RGB_consistency": "Not measurable: unsupported schedule rejected, no replacement RGB labels"
+}

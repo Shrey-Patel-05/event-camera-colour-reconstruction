@@ -1,0 +1,33 @@
+source line   285:      29c:	3f b7       	in	r19, 0x3f	; 63
+source line   286:      29e:	f8 94       	cli
+source line   287:      2a0:	80 91 b4 01 	lds	r24, 0x01B4	;  0x8001b4
+source line   288:      2a4:	90 91 b5 01 	lds	r25, 0x01B5	;  0x8001b5
+source line   289:      2a8:	a0 91 b6 01 	lds	r26, 0x01B6	;  0x8001b6
+source line   290:      2ac:	b0 91 b7 01 	lds	r27, 0x01B7	;  0x8001b7
+source line   291:      2b0:	26 b5       	in	r18, 0x26	; 38
+source line   292:      2b2:	a8 9b       	sbis	0x15, 0	; 21
+source line   293:      2b4:	05 c0       	rjmp	.+10     	;  0x2c0
+source line   294:      2b6:	2f 3f       	cpi	r18, 0xFF	; 255
+source line   295:      2b8:	19 f0       	breq	.+6      	;  0x2c0
+source line   296:      2ba:	01 96       	adiw	r24, 0x01	; 1
+source line   297:      2bc:	a1 1d       	adc	r26, r1
+source line   298:      2be:	b1 1d       	adc	r27, r1
+source line   299:      2c0:	3f bf       	out	0x3f, r19	; 63
+source line   300:      2c2:	ba 2f       	mov	r27, r26
+source line   301:      2c4:	a9 2f       	mov	r26, r25
+source line   302:      2c6:	98 2f       	mov	r25, r24
+source line   303:      2c8:	88 27       	eor	r24, r24
+source line   304:      2ca:	bc 01       	movw	r22, r24
+source line   305:      2cc:	cd 01       	movw	r24, r26
+source line   306:      2ce:	62 0f       	add	r22, r18
+source line   307:      2d0:	71 1d       	adc	r23, r1
+source line   308:      2d2:	81 1d       	adc	r24, r1
+source line   309:      2d4:	91 1d       	adc	r25, r1
+source line   310:      2d6:	42 e0       	ldi	r20, 0x02	; 2
+source line   311:      2d8:	66 0f       	add	r22, r22
+source line   312:      2da:	77 1f       	adc	r23, r23
+source line   313:      2dc:	88 1f       	adc	r24, r24
+source line   314:      2de:	99 1f       	adc	r25, r25
+source line   315:      2e0:	4a 95       	dec	r20
+source line   316:      2e2:	d1 f7       	brne	.-12     	;  0x2d8
+source line   317:      2e4:	08 95       	ret

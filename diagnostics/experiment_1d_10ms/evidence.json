@@ -1,0 +1,91 @@
+{
+  "primary_roi": "ROI_1",
+  "saved_run": "/Users/shrey/git/event-camera-colour-reconstruction/new_led_full_recording_results/10ms_4s/20261022_125050_727915",
+  "dat": "/Users/shrey/git/event-camera-colour-reconstruction/data/10ms_4s.dat",
+  "dat_bytes": 6957420612,
+  "first_DAT_timestamp_us": 1835,
+  "time_origin": "first DAT event",
+  "timing": {
+    "num_rgb_repeats": 3,
+    "fade_duration_us": 10000,
+    "peak_apply_time_us": 0,
+    "dark_interval_us": 500,
+    "flash_period_us": 10500,
+    "cycle_extra_delay_us": 0,
+    "sync_offset_us": 0,
+    "response_delay_us": 0,
+    "response_window_us": 10000,
+    "flash_detection_bin_us": 10,
+    "first_red_baseline_us": 1000,
+    "timing_min_flash_score": 2.5,
+    "timing_min_sequence_score": 5.0,
+    "timing_min_supported_fraction": 0.6666666666666666,
+    "timing_max_startup_score": 3.0,
+    "timing_edge_guard_us": 50
+  },
+  "effective_areas": {
+    "ROI_1": 188526,
+    "ROI_2": 74275,
+    "ROI_3": 85760,
+    "ROI_4": 58167
+  },
+  "mask_overlay_pixels_identical_outside_annotations": true,
+  "mask_figure_different_pixels_in_annotation_regions": 1162,
+  "reproduction": {
+    "flash_responses.csv": {
+      "rows": 36,
+      "numeric_fields": 432,
+      "max_absolute_error": 0.0
+    },
+    "response_vectors.csv": {
+      "rows": 4,
+      "numeric_fields": 92,
+      "max_absolute_error": 2.220446049250313e-16
+    },
+    "repeatability_summary.csv": {
+      "rows": 36,
+      "numeric_fields": 108,
+      "max_absolute_error": 0.0
+    }
+  },
+  "histogram_integrations_identical": true,
+  "invalid_spatial_events": 0,
+  "baseline_detector_rerun": "reused verified Experiment 1 result; detector not rerun in 1D",
+  "original_support_labels_only": true,
+  "sensitivity_run": true,
+  "roi_selection": "Saved polygons reused; CLI selects primary; all four sectors analysed",
+  "source_sha256": {
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_roi_consistency.py": "fb6e3130799a0300189b9f2185ea7835e234f495dcbeececd8c352bc9f368a10",
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_pipeline.py": "d65fc364a631f42c3bdce630cbac197208cb09cfd88299cfc0c227c99092427c",
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_duration_experiment.py": "52e2fa8098348aefb8256bf3607cbed4bbeb75fe7c431b364ca59cbcb7e7e939",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/dat_decoder.py": "86fc0577b4d323fe080f39df5d5bfdf255fc93c0155610f2f2b09da949af7cca",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/flash_detection.py": "dc109ec896c7ba1e27ef75223a551c070a8f915c18e07c214ba373e118d50e4b",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/temporal_alignment.py": "4d0d3e5478fbe99757e612201341e1ba205e141d422e67018329a318a0edc1d3",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/roi_analysis.py": "95c2921ee359aa21ec0a7ea42b8913ed1d97093b16f373fa2ecac212d5aa1308",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/colour_mapping.py": "40228ebbc8f0a8ce57b878680a12a72acb7612c69d12231af055c1e554f45725",
+    "/Users/shrey/git/event-camera-colour-reconstruction/new_led_full_recording_results/10ms_4s/20261022_125050_727915/analysis_metadata.json": "ddd553e970556d778ec6446e3941756cd1e2acafa483efd314cfa914622bbfd8",
+    "/Users/shrey/git/event-camera-colour-reconstruction/diagnostics/experiment_1_10ms/evidence.json": "8f52885d9d39c1ad435f7edddf8f1b78fbe3a9ad2a27e481c3736c1d8ad56612"
+  },
+  "git_revision": "0bbfc765f7035e3c1079af8e91136a63e2fe3221",
+  "command": [
+    "/opt/anaconda3/bin/python3",
+    "run_roi_consistency.py",
+    "--dat",
+    "data/10ms_4s.dat",
+    "--saved-run",
+    "new_led_full_recording_results/10ms_4s/20261022_125050_727915",
+    "--evidence",
+    "diagnostics/experiment_1_10ms/evidence.json",
+    "--primary-roi",
+    "ROI_1",
+    "--output",
+    "diagnostics/experiment_1d_10ms",
+    "--sensitivity"
+  ],
+  "limitations": [
+    "Predicted colour identity unverified",
+    "Only one recording and three predicted repetitions",
+    "No independent LED timings or calibrated colour reference",
+    "500 \u00b5s snapshots are chosen diagnostic windows"
+  ]
+}

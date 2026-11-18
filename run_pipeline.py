@@ -14,6 +14,8 @@ from pathlib import Path
 import json
 import sys
 
+import numpy as np
+
 # Allow running directly from the repository root without installing a package.
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
@@ -23,12 +25,15 @@ from dat_decoder import (  # noqa: E402
     find_file_position_at_timestamp,
     print_dat_header,
     read_dat_header,
+    scan_polarity_bins,
 )
-from temporal_alignment import TimingConfig  # noqa: E402
+from temporal_alignment import TimingConfig, build_fixed_flash_onsets  # noqa: E402
 from flash_detection import (  # noqa: E402
+    FlashDetectionResult,
     FlashSearchConfig,
     detect_flash_onsets_chunked,
     save_flash_figure,
+    scan_full_recording_overview,
 )
 from roi_analysis import (  # noqa: E402
     ROIConfig,
@@ -59,11 +64,12 @@ from colour_mapping import (  # noqa: E402
 # -----------------------------------------------------------------------------
 # Experiment settings
 # -----------------------------------------------------------------------------
-DATA_FILE = Path("data/example.dat")
-SKIP_BEFORE_TIME_US = 0
+DATA_FILE = Path("data/1ms_2s.dat")
+SKIP_BEFORE_TIME_US =   0
+MANUAL_FIRST_ONSET_US = None  # After the first DAT event; None uses automatic detection.
 
 # These values must match the actual recording setup.
-FADE_DURATION_US = 1_000
+FADE_DURATION_US = 1000
 PEAK_APPLY_TIME_US = 0
 DARK_INTERVAL_US = 500
 END_DELAY_US = 0
@@ -189,15 +195,53 @@ def main() -> None:
     )
 
     # 1. Detect one R1 onset and lock the rest to the fixed hardware schedule.
-    detection = detect_flash_onsets_chunked(
-        DATA_FILE,
-        read_start_position,
-        actual_start_timestamp,
-        actual_read_start_us,
-        output_dir,
-        TIMING,
-        FLASH_SEARCH,
-    )
+    if MANUAL_FIRST_ONSET_US is None:
+        detection = detect_flash_onsets_chunked(
+            DATA_FILE,
+            read_start_position,
+            actual_start_timestamp,
+            actual_read_start_us,
+            output_dir,
+            TIMING,
+            FLASH_SEARCH,
+        )
+    else:
+        onsets = build_fixed_flash_onsets(
+            int(MANUAL_FIRST_ONSET_US) - actual_read_start_us, TIMING
+        )
+        available_end_us, overview = scan_full_recording_overview(
+            DATA_FILE, read_start_position, actual_start_timestamp,
+            actual_read_start_us, output_dir, FLASH_SEARCH,
+        )
+        if onsets[0] < 0 or (
+            onsets[-1] + TIMING.response_delay_us + TIMING.response_window_us
+            > available_end_us
+        ):
+            raise ValueError("Manual RGB response windows fall outside the retained recording.")
+        bin_us = TIMING.flash_detection_bin_us
+        left = max(0, int(onsets[0]) - 2 * TIMING.flash_period_us) // bin_us * bin_us
+        right = min(available_end_us, int(onsets[-1]) + TIMING.flash_period_us)
+        position, _, _ = find_file_position_at_timestamp(
+            DATA_FILE, read_start_position, actual_start_timestamp + left
+        )
+        counts, _ = scan_polarity_bins(
+            DATA_FILE, position, actual_start_timestamp + left, right - left, bin_us
+        )
+        detection = FlashDetectionResult(
+            onsets_us=onsets,
+            centres_us=left + (np.arange(len(counts)) + 0.5) * bin_us,
+            total_counts=counts.sum(axis=1),
+            smoothed_on_counts=np.convolve(
+                counts[:, 1].astype(float), [0.2, 0.6, 0.2], mode="same"
+            ),
+            polarity_counts=counts,
+            details={
+                "source": "manual_first_onset",
+                "first_onset_after_sync_us": int(onsets[0]),
+                "manual_first_onset_after_file_first_us": int(MANUAL_FIRST_ONSET_US),
+            },
+            recording_overview=overview,
+        )
     save_flash_figure(
         detection,
         actual_read_start_us,

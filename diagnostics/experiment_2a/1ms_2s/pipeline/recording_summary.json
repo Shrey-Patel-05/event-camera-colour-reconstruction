@@ -1,0 +1,14 @@
+{
+  "retained_event_span_us": 17485636,
+  "available_end_after_read_us": 17485637,
+  "events": 734540706,
+  "ON": 365337054,
+  "OFF": 369203652,
+  "overview_bin_us": 1000,
+  "max_interevent_gap_us": 390,
+  "gap_between_events_after_read_us": [
+    104,
+    494
+  ],
+  "note": "Whole-file coarse overview. Quiet bins are retained and are not used as a local peak locator."
+}

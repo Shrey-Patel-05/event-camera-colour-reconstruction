@@ -1,0 +1,7 @@
+﻿experiment,illumination_us,illumination_ms,window_mode,response_window_us,roi,estimator,amplitude_R_density,amplitude_G_density,amplitude_B_density,amplitude_R_rate_per_pixel_ms,amplitude_G_rate_per_pixel_ms,amplitude_B_rate_per_pixel_ms,vector_R,vector_G,vector_B,repeat_std_R,repeat_std_G,repeat_std_B,nonzero_vector
+1ms_2s,1000,1.0,FULL,1000,COMMON_UPPER,ON_PEAK,5.8824913527377115e-06,0.0,0.0,5.8824913527377115e-06,0.0,0.0,1.0,0.0,0.0,3.3962579660087636e-06,0.0,0.0,True
+1ms_2s,1000,1.0,FULL,1000,COMMON_UPPER,ON_MEAN,1.9608304509125705e-06,0.0,0.0,1.9608304509125705e-06,0.0,0.0,1.0,0.0,0.0,3.3962579660087636e-06,0.0,0.0,True
+1ms_2s,1000,1.0,FULL,1000,COMMON_UPPER,ON_MEDIAN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.3962579660087636e-06,0.0,0.0,False
+1ms_2s,1000,1.0,FIXED_500US,500,COMMON_UPPER,ON_PEAK,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+1ms_2s,1000,1.0,FIXED_500US,500,COMMON_UPPER,ON_MEAN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+1ms_2s,1000,1.0,FIXED_500US,500,COMMON_UPPER,ON_MEDIAN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False

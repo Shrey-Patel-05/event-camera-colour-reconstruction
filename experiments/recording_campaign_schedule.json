@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "status": "superseded_for_2026-11-16_session",
+  "random_seed": 20261112,
+  "design": "3 on durations x 3 pilot-selected drive tuples x 3 independent takes",
+  "unresolved": [
+    "common_dark_us after recovery pilot",
+    "per-channel drive tuples and control method",
+    "timing instrumentation and trigger validation",
+    "camera configuration",
+    "preamble and settling definition"
+  ],
+  "controls_and_reference_checks": "See docs/recording_campaign.md; controls are outside the 27 core trials",
+  "trials": [
+    {
+      "trial_index": 1,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on1000us_driveH",
+      "commanded_on_us": 1000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 2,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on10000us_driveM",
+      "commanded_on_us": 10000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 3,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on100000us_driveL",
+      "commanded_on_us": 100000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 4,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on1000us_driveL",
+      "commanded_on_us": 1000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 5,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on1000us_driveM",
+      "commanded_on_us": 1000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 6,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on10000us_driveH",
+      "commanded_on_us": 10000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 7,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on100000us_driveM",
+      "commanded_on_us": 100000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 8,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on100000us_driveH",
+      "commanded_on_us": 100000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 9,
+      "block_id": "B1",
+      "independent_take": 1,
+      "condition_id": "on10000us_driveL",
+      "commanded_on_us": 10000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 10,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on100000us_driveM",
+      "commanded_on_us": 100000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 11,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on100000us_driveH",
+      "commanded_on_us": 100000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 12,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on1000us_driveL",
+      "commanded_on_us": 1000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 13,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on1000us_driveM",
+      "commanded_on_us": 1000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 14,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on10000us_driveM",
+      "commanded_on_us": 10000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 15,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on10000us_driveL",
+      "commanded_on_us": 10000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 16,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on100000us_driveL",
+      "commanded_on_us": 100000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 17,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on1000us_driveH",
+      "commanded_on_us": 1000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 18,
+      "block_id": "B2",
+      "independent_take": 2,
+      "condition_id": "on10000us_driveH",
+      "commanded_on_us": 10000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 19,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on1000us_driveM",
+      "commanded_on_us": 1000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 20,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on10000us_driveL",
+      "commanded_on_us": 10000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 21,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on10000us_driveH",
+      "commanded_on_us": 10000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 22,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on100000us_driveM",
+      "commanded_on_us": 100000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 23,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on1000us_driveH",
+      "commanded_on_us": 1000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 24,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on10000us_driveM",
+      "commanded_on_us": 10000,
+      "drive_level_id": "M",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 25,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on1000us_driveL",
+      "commanded_on_us": 1000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 26,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on100000us_driveH",
+      "commanded_on_us": 100000,
+      "drive_level_id": "H",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    },
+    {
+      "trial_index": 27,
+      "block_id": "B3",
+      "independent_take": 3,
+      "condition_id": "on100000us_driveL",
+      "commanded_on_us": 100000,
+      "drive_level_id": "L",
+      "commanded_dark_us": null,
+      "drive_values_R_G_B": null,
+      "measurement_cycles": 100,
+      "commanded_order": [
+        "R",
+        "G",
+        "B"
+      ],
+      "waveform_proposal": "square_hold",
+      "camera_config_id": null,
+      "scene_id": null,
+      "run_id": null,
+      "status": "deferred_requires_adjustable_controller"
+    }
+  ],
+  "current_constraint": {
+    "reported_on": "2026-11-15",
+    "original_Uno_firmware": "preserve; current operations read-only",
+    "current_protocol": "docs/recording_campaign_fixed_firmware.md",
+    "reason": "No adjustable duration/drive interface or new stage-gate/preamble has been established in the existing binary."
+  },
+  "previous_status": "deferred_requires_adjustable_controller_original_firmware_preserved",
+  "superseded_by": "experiments/session_2026-11-16.json",
+  "active_manifest_instructions": "Use tools/prepare_recording_session.py prepare to generate per-run metadata for the agreed 21 recordings."
+}

@@ -1,0 +1,202 @@
+{
+  "data_file": "/Users/shrey/git/event-camera-colour-reconstruction/data/10ms_4s.dat",
+  "file_size_bytes": 6957420612,
+  "first_DAT_timestamp_us": 1835,
+  "time_origin": "first DAT event",
+  "interval_us": [
+    8470450,
+    9615000
+  ],
+  "bin_us": 50,
+  "independent_decoder_counts_identical": true,
+  "invalid_spatial_events": 0,
+  "raw_events": 73753536,
+  "saved_run": "new_led_full_recording_results/10ms_4s/20261022_125050_727915",
+  "timing": {
+    "num_rgb_repeats": 3,
+    "fade_duration_us": 10000,
+    "peak_apply_time_us": 0,
+    "dark_interval_us": 500,
+    "flash_period_us": 10500,
+    "cycle_extra_delay_us": 0,
+    "sync_offset_us": 0,
+    "response_delay_us": 0,
+    "response_window_us": 10000,
+    "flash_detection_bin_us": 10,
+    "first_red_baseline_us": 1000,
+    "timing_min_flash_score": 2.5,
+    "timing_min_sequence_score": 5.0,
+    "timing_min_supported_fraction": 0.6666666666666666,
+    "timing_max_startup_score": 3.0,
+    "timing_edge_guard_us": 50
+  },
+  "strongest_searched_recurrence": {
+    "lag_us": 100000,
+    "correlation": 0.9022176778252248
+  },
+  "configured_RGB_cycle_us": 31500,
+  "tested_cycle_lag_us": 31500,
+  "configured_cycle_correlation": -0.27746389151315504,
+  "stage_comparison": [
+    {
+      "stage": "R1",
+      "onset_after_file_first_us": 8520454,
+      "raw_ON": 338,
+      "raw_OFF": 314163,
+      "active_pixels": 314146,
+      "ON_contrast_score": "-0.37542659081381735",
+      "OFF_edge_score": "10.045086325331539",
+      "supported": "True"
+    },
+    {
+      "stage": "G1",
+      "onset_after_file_first_us": 8530954,
+      "raw_ON": 128156,
+      "raw_OFF": 144790,
+      "active_pixels": 248566,
+      "ON_contrast_score": "-185.35620396611807",
+      "OFF_edge_score": "2.7456258919345764",
+      "supported": "True"
+    },
+    {
+      "stage": "B1",
+      "onset_after_file_first_us": 8541454,
+      "raw_ON": 879637,
+      "raw_OFF": 6642,
+      "active_pixels": 579704,
+      "ON_contrast_score": "-113.86240494977403",
+      "OFF_edge_score": "-0.25",
+      "supported": "False"
+    },
+    {
+      "stage": "R2",
+      "onset_after_file_first_us": 8551954,
+      "raw_ON": 207504,
+      "raw_OFF": 267831,
+      "active_pixels": 342879,
+      "ON_contrast_score": "403.3614098382105",
+      "OFF_edge_score": "1.9839315084801787",
+      "supported": "True"
+    },
+    {
+      "stage": "G2",
+      "onset_after_file_first_us": 8562454,
+      "raw_ON": 394718,
+      "raw_OFF": 156433,
+      "active_pixels": 394470,
+      "ON_contrast_score": "497.0741129604272",
+      "OFF_edge_score": "8.20220480111946",
+      "supported": "True"
+    },
+    {
+      "stage": "B2",
+      "onset_after_file_first_us": 8572954,
+      "raw_ON": 381954,
+      "raw_OFF": 141208,
+      "active_pixels": 452971,
+      "ON_contrast_score": "587.9119922779743",
+      "OFF_edge_score": "-18.764091136346593",
+      "supported": "True"
+    },
+    {
+      "stage": "R3",
+      "onset_after_file_first_us": 8583454,
+      "raw_ON": 921177,
+      "raw_OFF": 23910,
+      "active_pixels": 649129,
+      "ON_contrast_score": "581.6226391342743",
+      "OFF_edge_score": "26.591391055837928",
+      "supported": "True"
+    },
+    {
+      "stage": "G3",
+      "onset_after_file_first_us": 8593954,
+      "raw_ON": 277323,
+      "raw_OFF": 598036,
+      "active_pixels": 590223,
+      "ON_contrast_score": "526.6146598794986",
+      "OFF_edge_score": "18.12175797218005",
+      "supported": "True"
+    },
+    {
+      "stage": "B3",
+      "onset_after_file_first_us": 8604454,
+      "raw_ON": 68,
+      "raw_OFF": 988061,
+      "active_pixels": 778920,
+      "ON_contrast_score": "1.6334349292548107",
+      "OFF_edge_score": "2.076687484090739",
+      "supported": "False"
+    }
+  ],
+  "source_sha256": {
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/flash_detection.py": "dc109ec896c7ba1e27ef75223a551c070a8f915c18e07c214ba373e118d50e4b",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/temporal_alignment.py": "4d0d3e5478fbe99757e612201341e1ba205e141d422e67018329a318a0edc1d3",
+    "/Users/shrey/git/event-camera-colour-reconstruction/src/dat_decoder.py": "86fc0577b4d323fe080f39df5d5bfdf255fc93c0155610f2f2b09da949af7cca",
+    "/Users/shrey/git/event-camera-colour-reconstruction/run_raw_diagnostic.py": "b1822ac66dcd7cba685f355b53d6282b66e2e1ced4894ecbe79b5439271263df",
+    "/Users/shrey/git/prophesee-automotive-dataset-toolbox/src/io/psee_loader.py": "ecaf0039d929b14bc358f8f056d2033d928af4793efc4a0908a7ba32f771f816",
+    "/Users/shrey/git/prophesee-automotive-dataset-toolbox/src/io/dat_events_tools.py": "62c2dfb9aa24d16cccdecb59adee26c9918c6dc87602312196b75cb8327b8877"
+  },
+  "git_revision": "0bbfc765f7035e3c1079af8e91136a63e2fe3221",
+  "detector_rerun": {
+    "automatic_timing_passed": true,
+    "supported_flashes": 7,
+    "required_supported_flashes": 6,
+    "rank_score": 5.995187572075727,
+    "sequence_ON_score": 48.329586518072546,
+    "sequence_OFF_score": 21.272753829275107,
+    "startup_activity_score": -86.26942170925486,
+    "startup_transition_score": 321.67079268209716,
+    "quiet_before_us": 31500,
+    "source": "full_recording_automatic_first_activity_fixed_RGB_check",
+    "first_onset_before_sync_us": 4020450,
+    "near_best_start_range_us": [
+      4020440,
+      4020450
+    ],
+    "phase_score_width_us": 20,
+    "phase_score_width_limit_us": 250,
+    "bin_us": 10,
+    "note": "Heuristic timing evidence only. RGB identity assumes the recording starts before the first red stage.",
+    "earlier_ambiguous_activity_groups_in_block": 10,
+    "first_onset_after_sync_us": 4020450,
+    "fine_block_origin_after_read_us": 2947500,
+    "flash_period_us": 10500,
+    "fade_duration_us": 10000,
+    "dark_interval_us": 500,
+    "recording": {
+      "retained_event_span_us": 13408180,
+      "available_end_after_read_us": 13408181,
+      "events": 853056563,
+      "ON": 440897250,
+      "OFF": 412159313,
+      "overview_bin_us": 1000,
+      "max_interevent_gap_us": 166,
+      "gap_between_events_after_read_us": [
+        2795267,
+        2795433
+      ],
+      "note": "Whole-file coarse overview. Quiet bins are retained and are not used as a local peak locator."
+    },
+    "first_red_search_duration_us": null,
+    "search_last_eligible_onset_us": 13313681,
+    "fine_blocks_checked": 4,
+    "timing_basis": "Configured fixed timing; no independent per-flash peak shifts.",
+    "sync_offset_us": 0,
+    "cycle_extra_delay_us": 0,
+    "response_delay_us": 0,
+    "response_window_us": 10000
+  },
+  "rerun_onsets_after_file_first_us": [
+    8520454,
+    8530954,
+    8541454,
+    8551954,
+    8562454,
+    8572954,
+    8583454,
+    8593954,
+    8604454
+  ],
+  "rerun_matches_saved_onsets": true
+}

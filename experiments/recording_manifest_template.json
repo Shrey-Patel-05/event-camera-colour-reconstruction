@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "status": "superseded_for_2026-11-16_session",
+  "run_id": null,
+  "session_id": null,
+  "date_time_with_timezone": null,
+  "operator": null,
+  "block_id": null,
+  "independent_take": null,
+  "condition_id": null,
+  "camera": {
+    "model": null,
+    "serial": null,
+    "sdk_version": null,
+    "firmware_version": null,
+    "configuration_file": null,
+    "bias_file": null,
+    "event_rate_control": {
+      "enabled": null,
+      "settings": null
+    },
+    "anti_flicker": {
+      "enabled": null,
+      "settings": null
+    },
+    "other_sensor_filters": null,
+    "lens_focus_aperture": null,
+    "warmup_procedure": null
+  },
+  "illumination": {
+    "board_and_driver": null,
+    "controller_board": null,
+    "source_and_build_hash": null,
+    "configuration_file": null,
+    "waveform": null,
+    "brightness_control_method": null,
+    "per_channel_drive_values_and_units": null,
+    "pwm_frequency_hz": null,
+    "pwm_duty_and_phase": null,
+    "commanded_on_us": null,
+    "ramp_up_hold_ramp_down_us": null,
+    "commanded_dark_us": null,
+    "stage_order": null,
+    "measurement_cycles": null,
+    "preamble_definition": null,
+    "settling_cycles_excluded_by_design": null,
+    "inter_cycle_pause_us": null,
+    "optical_measurement_available": null,
+    "measurement_cycles_target": 100,
+    "optical_attenuation_filter_and_placement": null,
+    "independently_adjustable_firmware_parameters": null
+  },
+  "timing": {
+    "stage_table_file": null,
+    "controller_log_file": null,
+    "controller_clock_units_and_origin": null,
+    "camera_trigger_export_file": null,
+    "camera_clock_units_and_origin": null,
+    "trigger_edge_polarity_verified": null,
+    "optical_trace_file": null,
+    "scope_or_logger_clock_and_sample_rate": null,
+    "clock_mapping_and_residuals": null,
+    "timing_uncertainty_us": null,
+    "timing_reference_limitations": null
+  },
+  "scene": {
+    "scene_and_layout_id": null,
+    "target_instance_ids": null,
+    "colour_labels_and_reference_source": null,
+    "geometry_file": null,
+    "roi_polygons_and_masks_file": null,
+    "setup_photo": null,
+    "reference_photo_and_settings": null,
+    "ambient_lighting": null,
+    "motion_condition": "static_core",
+    "temperature_and_other_notes": null
+  },
+  "files": {
+    "native_raw": null,
+    "working_cd_dat": null,
+    "event_conversion_tool_settings_and_time_origin": null,
+    "capture_and_decoder_diagnostics": null,
+    "quick_check_report": null,
+    "checksums_file": null,
+    "second_copy_verified": null
+  },
+  "quality": {
+    "expected_and_observed_stage_counts": null,
+    "capture_integrity": "unchecked",
+    "reference_signal_adequacy": "unchecked",
+    "banding_observation": "unchecked",
+    "repeatability_observation": "unchecked",
+    "technical_retake_reason": null,
+    "scientific_failure_conditions_retained": null
+  },
+  "dataset_partition_group": null,
+  "notes": null,
+  "controller_preservation": {
+    "mode": "existing_firmware_read_only",
+    "reported_board": "Arduino Uno / ATmega328P",
+    "backup_hex_file": "arduino_original_backup.hex",
+    "backup_hex_sha256": "5db94ba5ccb05123a765252579955536c032fdc4a0ddc6a79d7e06813b32f752",
+    "disassembly_file": "arduino_original_disassembly.txt",
+    "original_source_available": false,
+    "firmware_modified_for_this_run": false,
+    "reported_pins": [
+      9,
+      10,
+      11
+    ],
+    "verified_pin_to_colour_mapping": null,
+    "reported_pwm_hz_approx": 490,
+    "actual_timer_configuration_audited": true,
+    "reported_ramp_setting_us": 500,
+    "ramp_total_or_step_delay_verified": "Whole-ramp elapsed-time target; not a repeated per-step delay",
+    "reported_dark_setting_us": 500,
+    "optical_waveform_measured": null,
+    "historical_DAT_to_firmware_provenance": null,
+    "disassembly_sha256": "6e0da82a0ceb3674618b779985bef84e5260cadf910adff17eb92907749922cc",
+    "offline_audit_report": "docs/arduino_firmware_audit.md",
+    "timer_audit_scope": "Compiled initialisation consistent with standard reset state; actual clock/PWM phase unmeasured",
+    "confirmed_pin_stage_order": [
+      9,
+      10,
+      11
+    ],
+    "explicit_peak_hold_us": 0,
+    "physical_optical_ramp_duration_us": null
+  },
+  "previous_status": "template_unrecorded",
+  "superseded_by": "experiments/session_2026-11-16.json",
+  "active_manifest_instructions": "Use tools/prepare_recording_session.py prepare to generate per-run metadata for the agreed 21 recordings."
+}

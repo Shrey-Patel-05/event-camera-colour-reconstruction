@@ -1,0 +1,132 @@
+source line   924:      810:	78 94       	sei
+source line   925:      812:	84 b5       	in	r24, 0x24	; 36
+source line   926:      814:	82 60       	ori	r24, 0x02	; 2
+source line   927:      816:	84 bd       	out	0x24, r24	; 36
+source line   928:      818:	84 b5       	in	r24, 0x24	; 36
+source line   929:      81a:	81 60       	ori	r24, 0x01	; 1
+source line   930:      81c:	84 bd       	out	0x24, r24	; 36
+source line   931:      81e:	85 b5       	in	r24, 0x25	; 37
+source line   932:      820:	82 60       	ori	r24, 0x02	; 2
+source line   933:      822:	85 bd       	out	0x25, r24	; 37
+source line   934:      824:	85 b5       	in	r24, 0x25	; 37
+source line   935:      826:	81 60       	ori	r24, 0x01	; 1
+source line   936:      828:	85 bd       	out	0x25, r24	; 37
+source line   937:      82a:	80 91 6e 00 	lds	r24, 0x006E	;  0x80006e
+source line   938:      82e:	81 60       	ori	r24, 0x01	; 1
+source line   939:      830:	80 93 6e 00 	sts	0x006E, r24	;  0x80006e
+source line   940:      834:	10 92 81 00 	sts	0x0081, r1	;  0x800081
+source line   941:      838:	80 91 81 00 	lds	r24, 0x0081	;  0x800081
+source line   942:      83c:	82 60       	ori	r24, 0x02	; 2
+source line   943:      83e:	80 93 81 00 	sts	0x0081, r24	;  0x800081
+source line   944:      842:	80 91 81 00 	lds	r24, 0x0081	;  0x800081
+source line   945:      846:	81 60       	ori	r24, 0x01	; 1
+source line   946:      848:	80 93 81 00 	sts	0x0081, r24	;  0x800081
+source line   947:      84c:	80 91 80 00 	lds	r24, 0x0080	;  0x800080
+source line   948:      850:	81 60       	ori	r24, 0x01	; 1
+source line   949:      852:	80 93 80 00 	sts	0x0080, r24	;  0x800080
+source line   950:      856:	80 91 b1 00 	lds	r24, 0x00B1	;  0x8000b1
+source line   951:      85a:	84 60       	ori	r24, 0x04	; 4
+source line   952:      85c:	80 93 b1 00 	sts	0x00B1, r24	;  0x8000b1
+source line   953:      860:	80 91 b0 00 	lds	r24, 0x00B0	;  0x8000b0
+source line   954:      864:	81 60       	ori	r24, 0x01	; 1
+source line   955:      866:	80 93 b0 00 	sts	0x00B0, r24	;  0x8000b0
+source line   956:      86a:	80 91 7a 00 	lds	r24, 0x007A	;  0x80007a
+source line   957:      86e:	84 60       	ori	r24, 0x04	; 4
+source line   958:      870:	80 93 7a 00 	sts	0x007A, r24	;  0x80007a
+source line   959:      874:	80 91 7a 00 	lds	r24, 0x007A	;  0x80007a
+source line   960:      878:	82 60       	ori	r24, 0x02	; 2
+source line   961:      87a:	80 93 7a 00 	sts	0x007A, r24	;  0x80007a
+source line   962:      87e:	80 91 7a 00 	lds	r24, 0x007A	;  0x80007a
+source line   963:      882:	81 60       	ori	r24, 0x01	; 1
+source line   964:      884:	80 93 7a 00 	sts	0x007A, r24	;  0x80007a
+source line   965:      888:	80 91 7a 00 	lds	r24, 0x007A	;  0x80007a
+source line   966:      88c:	80 68       	ori	r24, 0x80	; 128
+source line   967:      88e:	80 93 7a 00 	sts	0x007A, r24	;  0x80007a
+source line   968:      892:	10 92 c1 00 	sts	0x00C1, r1	;  0x8000c1
+source line   969:      896:	e0 91 22 01 	lds	r30, 0x0122	;  0x800122
+source line   970:      89a:	f0 91 23 01 	lds	r31, 0x0123	;  0x800123
+source line   971:      89e:	82 e0       	ldi	r24, 0x02	; 2
+source line   972:      8a0:	80 83       	st	Z, r24
+source line   973:      8a2:	e0 91 1e 01 	lds	r30, 0x011E	;  0x80011e
+source line   974:      8a6:	f0 91 1f 01 	lds	r31, 0x011F	;  0x80011f
+source line   975:      8aa:	10 82       	st	Z, r1
+source line   976:      8ac:	e0 91 20 01 	lds	r30, 0x0120	;  0x800120
+source line   977:      8b0:	f0 91 21 01 	lds	r31, 0x0121	;  0x800121
+source line   978:      8b4:	8f ec       	ldi	r24, 0xCF	; 207
+source line   979:      8b6:	80 83       	st	Z, r24
+source line   980:      8b8:	10 92 2a 01 	sts	0x012A, r1	;  0x80012a
+source line   981:      8bc:	e0 91 26 01 	lds	r30, 0x0126	;  0x800126
+source line   982:      8c0:	f0 91 27 01 	lds	r31, 0x0127	;  0x800127
+source line   983:      8c4:	86 e0       	ldi	r24, 0x06	; 6
+source line   984:      8c6:	80 83       	st	Z, r24
+source line   985:      8c8:	e0 91 24 01 	lds	r30, 0x0124	;  0x800124
+source line   986:      8cc:	f0 91 25 01 	lds	r31, 0x0125	;  0x800125
+source line   987:      8d0:	80 81       	ld	r24, Z
+source line   988:      8d2:	80 61       	ori	r24, 0x10	; 16
+source line   989:      8d4:	80 83       	st	Z, r24
+source line   990:      8d6:	e0 91 24 01 	lds	r30, 0x0124	;  0x800124
+source line   991:      8da:	f0 91 25 01 	lds	r31, 0x0125	;  0x800125
+source line   992:      8de:	80 81       	ld	r24, Z
+source line   993:      8e0:	88 60       	ori	r24, 0x08	; 8
+source line   994:      8e2:	80 83       	st	Z, r24
+source line   995:      8e4:	e0 91 24 01 	lds	r30, 0x0124	;  0x800124
+source line   996:      8e8:	f0 91 25 01 	lds	r31, 0x0125	;  0x800125
+source line   997:      8ec:	80 81       	ld	r24, Z
+source line   998:      8ee:	80 68       	ori	r24, 0x80	; 128
+source line   999:      8f0:	80 83       	st	Z, r24
+source line  1000:      8f2:	e0 91 24 01 	lds	r30, 0x0124	;  0x800124
+source line  1001:      8f6:	f0 91 25 01 	lds	r31, 0x0125	;  0x800125
+source line  1002:      8fa:	80 81       	ld	r24, Z
+source line  1003:      8fc:	8f 7d       	andi	r24, 0xDF	; 223
+source line  1004:      8fe:	80 83       	st	Z, r24
+source line  1005:      900:	89 e0       	ldi	r24, 0x09	; 9
+source line  1006:      902:	0e 94 87 00 	call	0x10e	;  0x10e
+source line  1007:      906:	8a e0       	ldi	r24, 0x0A	; 10
+source line  1008:      908:	0e 94 87 00 	call	0x10e	;  0x10e
+source line  1009:      90c:	8b e0       	ldi	r24, 0x0B	; 11
+source line  1010:      90e:	0e 94 87 00 	call	0x10e	;  0x10e
+source line  1011:      912:	0e 94 80 02 	call	0x500	;  0x500
+source line  1012:      916:	0e 94 4e 01 	call	0x29c	;  0x29c
+source line  1013:      91a:	6b 01       	movw	r12, r22
+source line  1014:      91c:	7c 01       	movw	r14, r24
+source line  1015:      91e:	0e 94 4e 01 	call	0x29c	;  0x29c
+source line  1016:      922:	6c 19       	sub	r22, r12
+source line  1017:      924:	7d 09       	sbc	r23, r13
+source line  1018:      926:	8e 09       	sbc	r24, r14
+source line  1019:      928:	9f 09       	sbc	r25, r15
+source line  1020:      92a:	60 34       	cpi	r22, 0x40	; 64
+source line  1021:      92c:	72 44       	sbci	r23, 0x42	; 66
+source line  1022:      92e:	8f 40       	sbci	r24, 0x0F	; 15
+source line  1023:      930:	91 05       	cpc	r25, r1
+source line  1024:      932:	a8 f3       	brcs	.-22     	;  0x91e
+source line  1025:      934:	c0 e0       	ldi	r28, 0x00	; 0
+source line  1026:      936:	d0 e0       	ldi	r29, 0x00	; 0
+source line  1027:      938:	50 e0       	ldi	r21, 0x00	; 0
+source line  1028:      93a:	40 e0       	ldi	r20, 0x00	; 0
+source line  1029:      93c:	70 e0       	ldi	r23, 0x00	; 0
+source line  1030:      93e:	60 e0       	ldi	r22, 0x00	; 0
+source line  1031:      940:	8f ef       	ldi	r24, 0xFF	; 255
+source line  1032:      942:	90 e0       	ldi	r25, 0x00	; 0
+source line  1033:      944:	0e 94 f0 02 	call	0x5e0	;  0x5e0
+source line  1034:      948:	50 e0       	ldi	r21, 0x00	; 0
+source line  1035:      94a:	40 e0       	ldi	r20, 0x00	; 0
+source line  1036:      94c:	6f ef       	ldi	r22, 0xFF	; 255
+source line  1037:      94e:	70 e0       	ldi	r23, 0x00	; 0
+source line  1038:      950:	90 e0       	ldi	r25, 0x00	; 0
+source line  1039:      952:	80 e0       	ldi	r24, 0x00	; 0
+source line  1040:      954:	0e 94 f0 02 	call	0x5e0	;  0x5e0
+source line  1041:      958:	4f ef       	ldi	r20, 0xFF	; 255
+source line  1042:      95a:	50 e0       	ldi	r21, 0x00	; 0
+source line  1043:      95c:	70 e0       	ldi	r23, 0x00	; 0
+source line  1044:      95e:	60 e0       	ldi	r22, 0x00	; 0
+source line  1045:      960:	90 e0       	ldi	r25, 0x00	; 0
+source line  1046:      962:	80 e0       	ldi	r24, 0x00	; 0
+source line  1047:      964:	0e 94 f0 02 	call	0x5e0	;  0x5e0
+source line  1048:      968:	0e 94 80 02 	call	0x500	;  0x500
+source line  1049:      96c:	20 97       	sbiw	r28, 0x00	; 0
+source line  1050:      96e:	21 f3       	breq	.-56     	;  0x938
+source line  1051:      970:	0e 94 dd 01 	call	0x3ba	;  0x3ba
+source line  1052:      974:	88 23       	and	r24, r24
+source line  1053:      976:	01 f3       	breq	.-64     	;  0x938
+source line  1054:      978:	0e 94 00 00 	call	0	;  0x0
+source line  1055:      97c:	dd cf       	rjmp	.-70     	;  0x938

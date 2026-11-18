@@ -1,0 +1,4 @@
+﻿core_start_after_read_us,core_end_after_read_us,events_in_context,status
+0,1000000,217516,no_supported_first_flash_continue
+1000000,2000000,182587,no_supported_first_flash_continue
+2000000,3000000,34171095,statistical_timing_check_passed

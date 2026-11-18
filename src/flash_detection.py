@@ -550,7 +550,9 @@ def save_flash_figure(
         left,
         right,
         (
-            f"Automatic timing check passed: fade={timing_config.fade_duration_us} us, "
+            ("Manual first onset: " if result.details.get("source") == "manual_first_onset"
+             else "Automatic timing check passed: ")
+            + f"fade={timing_config.fade_duration_us} us, "
             f"period={timing_config.flash_period_us} us"
         ),
     )
