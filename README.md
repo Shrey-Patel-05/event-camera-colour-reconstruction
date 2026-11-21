@@ -880,6 +880,29 @@ relative RGB estimation
 pseudo-colour visualisation
 ```
 
+## Run with peak-centred windows
+
+Pass the DAT recording and its matching timing diagnostic CSV to bypass automatic
+flash detection while using the usual interactive ROI picker.
+
+```bash
+python run_pipeline.py \
+  --dat "$HOME/Downloads/colours/purple/purple_T2_20261116.dat" \
+  --peak-csv diagnostics/purple_T2_20261116/stage_statistics.csv \
+  --num-rois 1
+```
+
+Press Enter to accept the event reference frame. Click at least three points
+around the region you want to measure, then press Enter to confirm the polygon.
+The runner uses the median of the green and blue peak offsets for all three
+stages in each cycle. It counts events in 500 µs windows centred on the estimated
+responses. Use `--peak-window-us` to try a different even width.
+
+The timestamped results directory contains `peak_windows.csv`,
+`peak_alignment.png`, `response_vectors.csv`, `rgb_response.png`, and
+`pseudo_colour_result.gif`. The terminal also prints each relative ON_PEAK
+RGB vector.
+
 ---
 
 # Running the Illumination-Duration Experiment

@@ -1,7 +1,6 @@
 """End-to-end runner for the refactored DVS colour-response project.
 
-Edit DATA_FILE before running:
-    python run_pipeline.py
+Use DATA_FILE or pass --dat. For recorded peak timing, also pass --peak-csv.
 
 Dependencies:
     python -m pip install numpy opencv-python matplotlib pillow
@@ -9,6 +8,8 @@ Dependencies:
 
 from __future__ import annotations
 
+import argparse
+from dataclasses import replace
 from datetime import datetime
 from pathlib import Path
 import json
@@ -28,6 +29,7 @@ from dat_decoder import (  # noqa: E402
     scan_polarity_bins,
 )
 from temporal_alignment import TimingConfig, build_fixed_flash_onsets  # noqa: E402
+from peak_windows import read_peak_windows  # noqa: E402
 from flash_detection import (  # noqa: E402
     FlashDetectionResult,
     FlashSearchConfig,
@@ -159,28 +161,71 @@ BRIGHTNESS_CONTRAST_STRENGTH = 9.0
 BRIGHTNESS_MIN_MULTIPLIER = 0.22
 
 
-def main() -> None:
-    if not DATA_FILE.is_file():
+def save_peak_window_figure(data_file, data_start, file_first_timestamp, available_end_us,
+                            windows, output_dir):
+    """Plot supplied integration windows against measured ON and OFF activity."""
+    import matplotlib.pyplot as plt
+
+    bin_us = 50
+    cycles = len(windows) // 3
+    panel_cycles = min(3, cycles)
+    starts = (0, (cycles - panel_cycles) // 2, cycles - panel_cycles)
+    led_colours = {"R": "#cb4040", "G": "#299557", "B": "#3d72d5"}
+    figure, axes = plt.subplots(3, 1, figsize=(12, 8), layout="constrained")
+    for ax, label, first in zip(axes, ("Beginning", "Middle", "End"), starts):
+        subset = windows[first * 3:(first + panel_cycles) * 3]
+        left = max(0, subset[0]["window_start_us"] - 1000)
+        right = min(available_end_us, subset[-1]["window_end_us"] + 1000)
+        position, _, _ = find_file_position_at_timestamp(
+            data_file, data_start, file_first_timestamp + left)
+        counts, _ = scan_polarity_bins(
+            data_file, position, file_first_timestamp + left, right - left, bin_us)
+        edges = (left + np.arange(len(counts) + 1) * bin_us) / 1000
+        ax.stairs(counts[:, 1], edges, baseline=None, color="#272727", lw=0.85, label="Camera ON")
+        ax.stairs(counts[:, 0], edges, baseline=None, color="#ad661a", lw=0.75, label="Camera OFF")
+        for row in subset:
+            colour = led_colours[row["led"]]
+            ax.axvspan(row["window_start_us"] / 1000, row["window_end_us"] / 1000,
+                       color=colour, alpha=0.2)
+            ax.axvline(row["peak_us"] / 1000, color=colour, lw=0.8, ls="--")
+            ax.text(row["peak_us"] / 1000, .98, f"{row['led']}{row['cycle']}",
+                    transform=ax.get_xaxis_transform(), ha="center", va="top",
+                    color=colour, fontsize=8)
+        ax.set(xlim=(left / 1000, right / 1000), ylim=(0, None), yscale="symlog",
+               ylabel=f"Events / {bin_us} µs", title=label)
+        ax.grid(axis="y", alpha=0.2)
+    axes[0].legend(loc="lower right", fontsize=8)
+    axes[-1].set_xlabel("Time after first DAT event (ms)")
+    figure.suptitle("Peak-centred response windows using the shared G/B offset per cycle")
+    figure.savefig(output_dir / "peak_alignment.png", dpi=150)
+    plt.close(figure)
+
+
+def main(data_file: Path | None = None, *, peak_csv: Path | None = None,
+         peak_window_us: int = 500, num_rois: int | None = None) -> None:
+    data_file = DATA_FILE if data_file is None else Path(data_file)
+    if not data_file.is_file():
         raise FileNotFoundError(
-            f"DAT file not found: {DATA_FILE}\nEdit DATA_FILE in run_pipeline.py first."
+            f"DAT file not found: {data_file}\nPass --dat or set DATA_FILE in run_pipeline.py."
         )
 
+    windows = read_peak_windows(Path(peak_csv), peak_window_us) if peak_csv is not None else None
     output_dir = (
         ROOT
         / "new_led_full_recording_results"
-        / DATA_FILE.stem
+        / data_file.stem
         / datetime.now().strftime("%Y%m%d_%H%M%S_%f")
     )
     output_dir.mkdir(parents=True, exist_ok=False)
 
-    header = read_dat_header(DATA_FILE)
+    header = read_dat_header(data_file)
     print_dat_header(header)
     if header.width is None or header.height is None:
         raise ValueError("DAT header is missing Width/Height.")
 
     target = header.file_first_timestamp + int(SKIP_BEFORE_TIME_US)
     read_start_position, actual_start_timestamp, skipped_count = (
-        find_file_position_at_timestamp(DATA_FILE, header.data_start, target)
+        find_file_position_at_timestamp(data_file, header.data_start, target)
     )
     actual_read_start_us = actual_start_timestamp - header.file_first_timestamp
     width, height = int(header.width), int(header.height)
@@ -194,10 +239,40 @@ def main() -> None:
         "alone does not identify an unknown first colour."
     )
 
-    # 1. Detect one R1 onset and lock the rest to the fixed hardware schedule.
-    if MANUAL_FIRST_ONSET_US is None:
+    # 1. Load the recorded response windows, or use the original timing paths.
+    timing = TIMING
+    roi_config = ROI
+    if windows is not None:
+        available_end_us, recording_overview = scan_full_recording_overview(
+            data_file, read_start_position, actual_start_timestamp,
+            actual_read_start_us, output_dir, FLASH_SEARCH,
+        )
+        onsets = np.array([row["window_start_us"] for row in windows], dtype=np.int64)
+        onsets -= actual_read_start_us
+        if onsets[0] < 0 or windows[-1]["window_end_us"] > actual_read_start_us + available_end_us:
+            raise ValueError("Peak CSV response windows fall outside the retained DAT recording.")
+        # The existing counter treats these anchors as response-window starts.
+        timing = replace(TIMING, num_rgb_repeats=len(windows) // 3,
+                         response_delay_us=0, response_window_us=peak_window_us)
+        roi_config = replace(ROI, reference_clip_value=16.0)
+        timing_details = {
+            "source": "peak_csv_shared_gb_median",
+            "peak_csv": str(Path(peak_csv).resolve()),
+            "num_rgb_repeats": timing.num_rgb_repeats,
+            "response_window_us": peak_window_us,
+            "anchor": "response window start; peak_us in peak_windows.csv is its centre",
+            "csv_time_origin": "first DAT event",
+            "phase_definition": "per-cycle median of the G and B peak-bin start offsets",
+        }
+        print(f"Loaded {len(windows)} peak-centred windows of {peak_window_us} µs "
+              f"from {peak_csv}.", flush=True)
+        write_csv(output_dir / "peak_windows.csv", windows)
+        save_peak_window_figure(
+            data_file, header.data_start, header.file_first_timestamp,
+            actual_read_start_us + available_end_us, windows, output_dir)
+    elif MANUAL_FIRST_ONSET_US is None:
         detection = detect_flash_onsets_chunked(
-            DATA_FILE,
+            data_file,
             read_start_position,
             actual_start_timestamp,
             actual_read_start_us,
@@ -210,7 +285,7 @@ def main() -> None:
             int(MANUAL_FIRST_ONSET_US) - actual_read_start_us, TIMING
         )
         available_end_us, overview = scan_full_recording_overview(
-            DATA_FILE, read_start_position, actual_start_timestamp,
+            data_file, read_start_position, actual_start_timestamp,
             actual_read_start_us, output_dir, FLASH_SEARCH,
         )
         if onsets[0] < 0 or (
@@ -222,10 +297,10 @@ def main() -> None:
         left = max(0, int(onsets[0]) - 2 * TIMING.flash_period_us) // bin_us * bin_us
         right = min(available_end_us, int(onsets[-1]) + TIMING.flash_period_us)
         position, _, _ = find_file_position_at_timestamp(
-            DATA_FILE, read_start_position, actual_start_timestamp + left
+            data_file, read_start_position, actual_start_timestamp + left
         )
         counts, _ = scan_polarity_bins(
-            DATA_FILE, position, actual_start_timestamp + left, right - left, bin_us
+            data_file, position, actual_start_timestamp + left, right - left, bin_us
         )
         detection = FlashDetectionResult(
             onsets_us=onsets,
@@ -242,26 +317,24 @@ def main() -> None:
             },
             recording_overview=overview,
         )
-    save_flash_figure(
-        detection,
-        actual_read_start_us,
-        output_dir,
-        TIMING,
-        show=False,
-    )
+    if windows is None:
+        save_flash_figure(detection, actual_read_start_us, output_dir, TIMING, show=False)
+        onsets = detection.onsets_us
+        timing_details = detection.details
+        recording_overview = detection.recording_overview
 
     # 2. Select a display-only event reference and draw ROIs.
-    roi_definitions = configure_rois(ROI.num_rois)
+    roi_definitions = configure_rois(roi_config.num_rois if num_rois is None else num_rois)
     reference_gray, reference_start_us, reference_details = (
         select_clear_reference_frame(
-            DATA_FILE,
+            data_file,
             read_start_position,
             actual_start_timestamp,
             actual_read_start_us,
             width,
             height,
-            first_onset_us=int(detection.onsets_us[0]),
-            config=ROI,
+            first_onset_us=int(onsets[0]),
+            config=roi_config,
         )
     )
     save_png(output_dir / "roi_reference.png", reference_gray)
@@ -269,13 +342,13 @@ def main() -> None:
     polygons = choose_polygon_rois(
         reference_gray,
         roi_definitions,
-        display_scale=ROI.display_scale,
+        display_scale=roi_config.display_scale,
     )
     raw_masks, raw_areas = make_roi_masks(polygons, width, height)
     roi_masks, roi_areas, region_details = prepare_analysis_roi_masks(
         raw_masks,
         roi_definitions,
-        nested_roi_mode=ROI.nested_roi_mode,
+        nested_roi_mode=roi_config.nested_roi_mode,
     )
     save_effective_roi_mask_figure(
         reference_gray,
@@ -286,17 +359,17 @@ def main() -> None:
 
     # 3. Quantitative ON/OFF response extraction from the fixed RGB windows.
     rows = count_roi_flash_responses_chunked(
-        DATA_FILE,
+        data_file,
         read_start_position,
         actual_start_timestamp,
         actual_read_start_us,
-        detection.onsets_us,
+        onsets,
         roi_masks,
         roi_areas,
         width,
         height,
-        TIMING,
-        chunk_events=ROI.chunk_events,
+        timing,
+        chunk_events=roi_config.chunk_events,
     )
     save_roi_response_figure(
         reference_gray,
@@ -332,11 +405,11 @@ def main() -> None:
     save_peak_summary_csv(output_dir / "response_vectors.csv", peak_summaries)
 
     create_pseudo_colour_gif(
-        DATA_FILE,
+        data_file,
         read_start_position,
         actual_start_timestamp,
         actual_read_start_us,
-        first_onset_us=int(detection.onsets_us[0]),
+        first_onset_us=int(onsets[0]),
         width=width,
         height=height,
         polygons=polygons,
@@ -347,10 +420,10 @@ def main() -> None:
     )
 
     metadata = {
-        "data_file": str(DATA_FILE),
+        "data_file": str(data_file),
         "actual_read_start_us": int(actual_read_start_us),
-        "timing_detection": detection.details,
-        "recording_overview": detection.recording_overview,
+        "timing_detection": timing_details,
+        "recording_overview": recording_overview,
         "roi_reference": reference_details,
         "roi_reference_start_us": int(reference_start_us),
         "raw_roi_areas": raw_areas,
@@ -369,15 +442,35 @@ def main() -> None:
 
     print(f"\nAnalysis complete: {output_dir}")
     print("Generated core GitHub figures:")
-    print("  flash_detection.png")
+    print("  peak_alignment.png" if windows is not None else "  flash_detection.png")
     print("  roi_response.png")
     print("  rgb_response.png")
     print("  pseudo_colour_result.gif")
+    if windows is not None:
+        for summary in peak_summaries:
+            rgb = ", ".join(f"{summary[f'vector_{led}']:.3f}" for led in "RGB")
+            print(f"  {summary['roi']} relative ON_PEAK RGB = ({rgb})")
+
+
+def cli() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dat", type=Path, help="Prophesee DAT recording")
+    parser.add_argument("--peak-csv", type=Path,
+                        help="stage_statistics.csv generated for this same DAT recording")
+    parser.add_argument("--peak-window-us", type=int, default=500,
+                        help="Even width of each peak-centred window in microseconds (default: 500)")
+    parser.add_argument("--num-rois", type=int, help="Number of polygons to draw interactively")
+    args = parser.parse_args()
+    if args.num_rois is not None and args.num_rois < 1:
+        parser.error("--num-rois must be positive.")
+    if args.peak_csv is None and args.peak_window_us != 500:
+        parser.error("--peak-window-us requires --peak-csv.")
+    main(args.dat, peak_csv=args.peak_csv, peak_window_us=args.peak_window_us, num_rois=args.num_rois)
 
 
 if __name__ == "__main__":
     try:
-        main()
+        cli()
     finally:
         # Safe cleanup after interactive OpenCV ROI windows.
         try:

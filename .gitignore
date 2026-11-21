@@ -235,6 +235,12 @@ datasets/
 # Automatically generated pipeline outputs
 new_led_full_recording_results/
 
+# Recording-specific timing diagnostics and local firmware-audit source material
+diagnostics/*/
+/arduino_original_backup.hex
+/arduino_original_disassembly.txt
+/arduino_original_backup.hex arduino_original_disassembly.txt
+
 # Large generated videos
 *.mp4
 *.avi
