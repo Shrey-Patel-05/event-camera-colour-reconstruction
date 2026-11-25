@@ -255,3 +255,9 @@ Thumbs.db
 
 # macOS system files
 .DS_Store
+
+# Local reruns and recording-level diagnostic plots
+/benchmark_results/
+/results/valspar_benchmark/recordings/
+
+/results/yan_known_timing/recordings/

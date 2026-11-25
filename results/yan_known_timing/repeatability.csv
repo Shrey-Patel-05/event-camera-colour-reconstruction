@@ -1,0 +1,8 @@
+swatch,profile,scored_takes,batch,roi,arm,available_takes,pairs,mean_pair_distance,mean_target_loss
+dark_green,T2,1,dark_green,ROI_1,A,1,0,,0.6043956043956045
+grey,T2,2,grey,ROI_1,A,2,1,0.33333333333333337,0.17596726190476192
+light_blue,T2,2,light_blue,ROI_1,A,2,1,1.0,0.6675191815856778
+orange,T2,2,orange,ROI_1,A,2,1,0.5558103975535169,0.4213368341654984
+purple,T2,2,purple,ROI_1,A,2,1,0.0,0.7569444444444444
+red,T2,3,red,ROI_1,A,3,3,0.2918526560753486,0.20831447858105587
+yellow,T2,3,yellow,ROI_1,A,3,3,0.37549019607843137,0.41245270037839693

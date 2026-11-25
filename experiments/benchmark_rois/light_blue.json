@@ -1,0 +1,29 @@
+{
+  "batch": "light_blue",
+  "source": "light_blue_T2_20261116.dat",
+  "width": 1280,
+  "height": 720,
+  "rois": {
+    "ROI_1": {
+      "swatch": "light_blue",
+      "points": [
+        [
+          450,
+          312
+        ],
+        [
+          629,
+          312
+        ],
+        [
+          629,
+          491
+        ],
+        [
+          450,
+          491
+        ]
+      ]
+    }
+  }
+}

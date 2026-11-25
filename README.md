@@ -898,3 +898,34 @@ The reported RGB response represents **relative event behaviour under controlled
 The pseudo-colour output is intended for visualisation and should not be interpreted as calibrated surface RGB or conventional RGB video reconstruction.
 
 Cross-duration experiments further indicate that the estimated colour response is sensitive to the temporal illumination configuration. The current implementation should therefore be regarded as an experimental analysis framework rather than a universally robust colour-reconstruction system.
+
+## Valspar recording benchmark
+
+Run Yan's pipeline with the Arduino timing for each recording.
+
+```sh
+python run_benchmark.py
+```
+
+Inputs default to `~/Downloads/colours/<batch>/*.dat`. Use `--data-root PATH`, `--roi-dir PATH` or `--output PATH` to change the inputs or output destination. Each run creates a fresh directory under `benchmark_results/`.
+
+The benchmark reads the recording's profile from its filename and looks up its ON duration and dark gap in `experiments/session_2026-11-16.json`, matching the Arduino session code.
+
+| Profile | ON duration | Dark gap | Stage start spacing |
+|---|---:|---:|---:|
+| T1 | 1 ms | 0.5 ms | 1.5 ms |
+| T2 and CA1–CA3 T2 | 1 ms | 5 ms | 6 ms |
+| T3 | 5 ms | 5 ms | 10 ms |
+| L2 | 0.5 ms ramp | 0.5 ms | nominal 1 ms plus software overhead |
+
+Yan's existing automatic first-onset detector, three RGB cycles, ON_PEAK extraction and display mapping produce the colours. The response window equals the configured ON duration. The [current report](results/yan_known_timing/report.txt) and [RGB figure](results/yan_known_timing/yan_rgb.png) show the run with recording-specific timing. Earlier A–E experiments remain archived under `results/valspar_benchmark/` and used different processing.
+
+The [saved batch ROI overlays](experiments/benchmark_rois/roi_overlays.jpg) show the sampled painted faces. Redraw a batch layout using the existing polygon tool.
+
+```sh
+python run_benchmark.py --draw-rois ~/Downloads/colours/purple/purple_T2_20261116.dat --swatches purple
+```
+
+The output includes `report.txt`, `yan_rgb.png`, per-ROI RGB estimates in `scores.csv`, overall and per-swatch errors in `summary.csv`, and CA repeat distances in `repeatability.csv`. Each input's applied timing, status and rejection reason are in `recordings.csv`. Individual recording directories contain detector diagnostics, flash counts and Yan's response vectors.
+
+Balance loss compares sum-normalised channel shares on a 0–1 scale. RGB MAE compares Yan's display RGB against the supplied Valspar RGB on a 0–255 scale. Positive signed errors mean overprediction. The references approximate the paint colours. The summary weights swatches equally and reports how many eligible takes yielded estimates.

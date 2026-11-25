@@ -1,0 +1,29 @@
+{
+  "batch": "orange",
+  "source": "orange_T2_20261116.dat",
+  "width": 1280,
+  "height": 720,
+  "rois": {
+    "ROI_1": {
+      "swatch": "orange",
+      "points": [
+        [
+          519,
+          315
+        ],
+        [
+          698,
+          315
+        ],
+        [
+          698,
+          494
+        ],
+        [
+          519,
+          494
+        ]
+      ]
+    }
+  }
+}

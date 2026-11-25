@@ -1,0 +1,37 @@
+YAN PIPELINE WITH RECORDING-SPECIFIC ARDUINO TIMING
+/Users/shrey/Downloads/colours
+
+T1       1 ms ON + 0.5 ms dark    1.5 ms between stage starts
+T2/CA    1 ms ON + 5 ms dark      6 ms between stage starts
+T3       5 ms ON + 5 ms dark      10 ms between stage starts
+L2       0.5 ms ramp + 0.5 ms dark, nominal; software overhead adds time
+
+Yan's original automatic first-onset detector, three RGB cycles and ON_PEAK extraction.
+The integration window equals the configured ON/ramp duration.
+Each take's applied durations and detector outcome are in recordings.csv.
+
+Swatch         scored/eligible    balance loss    RGB MAE      R pp      G pp      B pp
+ALL                37/55                0.395       82.3       0.8       1.1      -1.9
+black               1/7                 0.085       94.5       8.5      -4.6      -3.9
+dark_green          3/7                 0.654       87.0      45.2     -47.9       2.7
+grey                5/6                 0.188       57.1       6.0      -9.1       3.2
+light_blue          4/7                 0.585       98.2      40.9     -27.3     -13.7
+orange              6/7                 0.452       83.5     -38.6      34.5       4.1
+purple              5/7                 0.545       87.8      -4.4      36.7     -32.3
+red                 6/7                 0.306       77.8     -25.9      22.6       3.4
+yellow              7/7                 0.343       72.8     -25.3       4.0      21.3
+
+87 DAT files; 32 excluded; 4 input errors; 14 detector/extraction rejections.
+Excluded takes have dark, single-channel, irregular or unidentified protocols.
+
+Balance loss is channel-share error on a 0–1 scale, with 0 best.
+RGB MAE is mean absolute error per channel on a 0–255 scale.
+Signed share errors are prediction minus reference, in percentage points.
+Averages weight swatches equally, then recordings and ROIs within each swatch.
+References are the supplied nominal Valspar digital RGB values.
+
+yan_rgb.png        Predicted and reference RGB swatches
+scores.csv         Every successful or weak ROI estimate and its RGB errors
+summary.csv        Overall and per-swatch errors
+recordings.csv     Every input, applied timing and rejection reason
+repeatability.csv  Distances between independent CA captures
