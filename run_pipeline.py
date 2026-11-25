@@ -29,6 +29,7 @@ from dat_decoder import (  # noqa: E402
     scan_polarity_bins,
 )
 from temporal_alignment import TimingConfig, build_fixed_flash_onsets  # noqa: E402
+from swatch_rois import load_layout
 from peak_windows import read_peak_windows  # noqa: E402
 from flash_detection import (  # noqa: E402
     FlashDetectionResult,
@@ -202,7 +203,8 @@ def save_peak_window_figure(data_file, data_start, file_first_timestamp, availab
 
 
 def main(data_file: Path | None = None, *, peak_csv: Path | None = None,
-         peak_window_us: int = 500, num_rois: int | None = None) -> None:
+         peak_window_us: int = 500, num_rois: int | None = None,
+         roi_file: Path | None = None) -> None:
     data_file = DATA_FILE if data_file is None else Path(data_file)
     if not data_file.is_file():
         raise FileNotFoundError(
@@ -324,7 +326,12 @@ def main(data_file: Path | None = None, *, peak_csv: Path | None = None,
         recording_overview = detection.recording_overview
 
     # 2. Select a display-only event reference and draw ROIs.
-    roi_definitions = configure_rois(roi_config.num_rois if num_rois is None else num_rois)
+    if roi_file is None:
+        roi_definitions = configure_rois(roi_config.num_rois if num_rois is None else num_rois)
+    else:
+        polygons, labels = load_layout(roi_file, width, height)
+        roi_definitions = [(key, label, (255, 255, 255)) for key, label in labels.items()]
+        roi_config = replace(roi_config, automatic_reference_frame=True)
     reference_gray, reference_start_us, reference_details = (
         select_clear_reference_frame(
             data_file,
@@ -339,11 +346,10 @@ def main(data_file: Path | None = None, *, peak_csv: Path | None = None,
     )
     save_png(output_dir / "roi_reference.png", reference_gray)
 
-    polygons = choose_polygon_rois(
-        reference_gray,
-        roi_definitions,
-        display_scale=roi_config.display_scale,
-    )
+    if roi_file is None:
+        polygons = choose_polygon_rois(
+            reference_gray, roi_definitions, display_scale=roi_config.display_scale,
+        )
     raw_masks, raw_areas = make_roi_masks(polygons, width, height)
     roi_masks, roi_areas, region_details = prepare_analysis_roi_masks(
         raw_masks,
@@ -460,12 +466,15 @@ def cli() -> None:
     parser.add_argument("--peak-window-us", type=int, default=500,
                         help="Even width of each peak-centred window in microseconds (default: 500)")
     parser.add_argument("--num-rois", type=int, help="Number of polygons to draw interactively")
+    parser.add_argument("--roi-file", type=Path, help="Load a labelled benchmark ROI layout")
     args = parser.parse_args()
+    if args.roi_file and args.num_rois is not None:
+        parser.error("--num-rois and --roi-file cannot be used together.")
     if args.num_rois is not None and args.num_rois < 1:
         parser.error("--num-rois must be positive.")
     if args.peak_csv is None and args.peak_window_us != 500:
         parser.error("--peak-window-us requires --peak-csv.")
-    main(args.dat, peak_csv=args.peak_csv, peak_window_us=args.peak_window_us, num_rois=args.num_rois)
+    main(args.dat, peak_csv=args.peak_csv, peak_window_us=args.peak_window_us, num_rois=args.num_rois, roi_file=args.roi_file)
 
 
 if __name__ == "__main__":

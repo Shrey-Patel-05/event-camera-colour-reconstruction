@@ -55,6 +55,26 @@ class VideoConfig:
     chunk_events: int = 1_000_000
 
 
+def response_display_rgb(response_vector, multiplier, config):
+    """Apply Yan's display scaling to a nonzero relative response."""
+    display_unit = response_vector / np.max(response_vector)
+    base_display_rgb = np.clip(
+        display_unit * float(np.clip(config.on_peak_display_brightness, 0, 255)),
+        0,
+        255,
+    )
+
+    # Display-only desaturation.  The exported ON_PEAK vector is untouched.
+    luminance = float(np.dot(base_display_rgb, [0.2126, 0.7152, 0.0722]))
+    base_display_rgb = (
+        (1.0 - config.display_desaturation_fraction) * base_display_rgb
+        + config.display_desaturation_fraction * luminance
+    )
+
+    final_rgb = np.clip(base_display_rgb * float(multiplier), 0, 255)
+    return base_display_rgb, final_rgb
+
+
 def build_roi_colours(
     rows: list[dict],
     brightness_results: dict[str, dict],
@@ -163,22 +183,9 @@ def build_roi_colours(
             )
             continue
 
-        display_unit = response_vector / np.max(response_vector)
-        base_display_rgb = np.clip(
-            display_unit * float(np.clip(config.on_peak_display_brightness, 0, 255)),
-            0,
-            255,
+        base_display_rgb, final_rgb = response_display_rgb(
+            response_vector, brightness["display_brightness_multiplier"], config
         )
-
-        # Display-only desaturation.  The exported ON_PEAK vector is untouched.
-        luminance = float(np.dot(base_display_rgb, [0.2126, 0.7152, 0.0722]))
-        base_display_rgb = (
-            (1.0 - config.display_desaturation_fraction) * base_display_rgb
-            + config.display_desaturation_fraction * luminance
-        )
-
-        multiplier = float(brightness["display_brightness_multiplier"])
-        final_rgb = np.clip(base_display_rgb * multiplier, 0, 255)
         roi_colours[roi_name] = final_rgb[::-1].astype(np.float32)  # RGB -> BGR
         summary.update(
             {

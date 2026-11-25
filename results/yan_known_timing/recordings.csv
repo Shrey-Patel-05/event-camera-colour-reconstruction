@@ -1,0 +1,88 @@
+recording,status,reason,profile,run,on_us,dark_us,stage_period_us,timing_basis,first_window_us,supported_flashes
+black/black_CA1_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA1,1000,5000,6000,Arduino session profile,2768510,6
+black/black_CA2_T2_20261116.dat,rejected,No reliable first flash was found across the configured search range.,T2,CA2,1000,5000,6000,Arduino session profile,,
+black/black_CA3_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA3,1000,5000,6000,Arduino session profile,715050,8
+black/black_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+black/black_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+black/black_L2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,17960,7
+black/black_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+black/black_N2_20261116.dat,excluded,LEDs off,,,,,,,,
+black/black_SR_20261116.dat,excluded,Single LED,,,,,,,,
+black/black_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,1836210,7
+black/black_T2_20261116.dat,input_error,DAT timestamps are not monotonically increasing. A wrapped/converted timestamp stream is required before analysis.,T2,T2,1000,5000,6000,Arduino session profile,,
+black/black_T3_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T3,T3,5000,5000,10000,Arduino session profile,1851700,8
+black/r_13.dat,excluded,Unidentified recording and firmware profile,,,,,,,,
+black/r_14.dat,excluded,Unidentified recording and firmware profile,,,,,,,,
+dark_green/dark_green_CA1_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA1,1000,5000,6000,Arduino session profile,6502590,7
+dark_green/dark_green_CA2_T2_20261116.dat,eligible,,T2,CA2,1000,5000,6000,Arduino session profile,7331390,6
+dark_green/dark_green_CA3_T2_20261116.dat,rejected,No reliable first flash was found across the configured search range.,T2,CA3,1000,5000,6000,Arduino session profile,,
+dark_green/dark_green_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+dark_green/dark_green_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+dark_green/dark_green_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,4305310,6
+dark_green/dark_green_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+dark_green/dark_green_SR_20261116.dat,excluded,Single LED,,,,,,,,
+dark_green/dark_green_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,2821830,6
+dark_green/dark_green_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,T2,1000,5000,6000,Arduino session profile,2223740,8
+dark_green/dark_green_T3_20261116.dat,input_error,DAT file ends with an incomplete event record.,T3,T3,5000,5000,10000,Arduino session profile,,
+grey/grey_CA1_T2_20261116.dat,eligible,,T2,CA1,1000,5000,6000,Arduino session profile,2187200,6
+grey/grey_CA2_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA2,1000,5000,6000,Arduino session profile,4012000,9
+grey/grey_CA3_T2_20261116.dat,eligible,,T2,CA3,1000,5000,6000,Arduino session profile,3020160,7
+grey/grey_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+grey/grey_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+grey/grey_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,2022720,6
+grey/grey_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+grey/grey_SR_20261116.dat,excluded,Single LED,,,,,,,,
+grey/grey_T2_20261116.dat,eligible,,T2,T2,1000,5000,6000,Arduino session profile,2243740,6
+grey/grey_T3_20261116.dat,eligible,,T3,T3,5000,5000,10000,Arduino session profile,3652840,9
+light_blue/light_blue_CA1_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA1,1000,5000,6000,Arduino session profile,5420420,6
+light_blue/light_blue_CA2_T2_20261116.dat,eligible,,T2,CA2,1000,5000,6000,Arduino session profile,2406800,7
+light_blue/light_blue_CA3_T2_20261116.dat,eligible,,T2,CA3,1000,5000,6000,Arduino session profile,4213570,6
+light_blue/light_blue_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+light_blue/light_blue_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+light_blue/light_blue_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,1354850,6
+light_blue/light_blue_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+light_blue/light_blue_SR_20261116.dat,excluded,Single LED,,,,,,,,
+light_blue/light_blue_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,2580070,6
+light_blue/light_blue_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,T2,1000,5000,6000,Arduino session profile,2472400,6
+light_blue/light_blue_T3_20261116.dat,input_error,DAT file ends with an incomplete event record.,T3,T3,5000,5000,10000,Arduino session profile,,
+orange/orange_CA1_T2_20261116.dat,eligible,,T2,CA1,1000,5000,6000,Arduino session profile,2535580,6
+orange/orange_CA2_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA2,1000,5000,6000,Arduino session profile,2198040,9
+orange/orange_CA3_T2_20261116.dat,eligible,,T2,CA3,1000,5000,6000,Arduino session profile,2752010,6
+orange/orange_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+orange/orange_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+orange/orange_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,2079910,6
+orange/orange_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+orange/orange_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,2739070,7
+orange/orange_T2_20261116.dat,eligible,,T2,T2,1000,5000,6000,Arduino session profile,2799700,6
+orange/orange_T3_20261116.dat,eligible,,T3,T3,5000,5000,10000,Arduino session profile,2982670,6
+purple/purple_CA1_T2_20261116.dat,eligible,,T2,CA1,1000,5000,6000,Arduino session profile,7039330,8
+purple/purple_CA2_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,CA2,1000,5000,6000,Arduino session profile,2304160,6
+purple/purple_CA3_T2_20261116.dat,eligible,,T2,CA3,1000,5000,6000,Arduino session profile,2254000,7
+purple/purple_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+purple/purple_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+purple/purple_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,2088460,7
+purple/purple_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+purple/purple_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,1999520,8
+purple/purple_T2_20261116.dat,rejected,Reference ROI has no valid ON-event activity.,T2,T2,1000,5000,6000,Arduino session profile,5801490,7
+purple/purple_T3_20261116.dat,eligible,,T3,T3,5000,5000,10000,Arduino session profile,2642380,9
+red/red_CA1_T2_20261116.dat,eligible,,T2,CA1,1000,5000,6000,Arduino session profile,2264230,9
+red/red_CA2_T2_20261116.dat,eligible,,T2,CA2,1000,5000,6000,Arduino session profile,2821400,6
+red/red_CA3_T2_20261116.dat,eligible,,T2,CA3,1000,5000,6000,Arduino session profile,3277550,6
+red/red_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+red/red_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+red/red_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,2769110,8
+red/red_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+red/red_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,1936870,8
+red/red_T2_20261116.dat,eligible,,T2,T2,1000,5000,6000,Arduino session profile,2460190,7
+red/red_T3_20261116.dat,input_error,DAT file ends with an incomplete event record.,T3,T3,5000,5000,10000,Arduino session profile,,
+yellow/yellow_CA1_T2_20261116.dat,eligible,,T2,CA1,1000,5000,6000,Arduino session profile,2619400,6
+yellow/yellow_CA2_T2_20261116.dat,eligible,,T2,CA2,1000,5000,6000,Arduino session profile,3313460,6
+yellow/yellow_CA3_T2_20261116.dat,eligible,,T2,CA3,1000,5000,6000,Arduino session profile,2407120,6
+yellow/yellow_J1_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+yellow/yellow_J2_T2_20261116.dat,excluded,Shuffled RGB with omitted pulses,,,,,,,,
+yellow/yellow_L2_20261116.dat,eligible,,legacy,L2,500,500,1000,nominal legacy ramp plus zero interval; software overhead adds time,653610,6
+yellow/yellow_N1_20261116.dat,excluded,LEDs off,,,,,,,,
+yellow/yellow_SR_20261116.dat,excluded,Single LED,,,,,,,,
+yellow/yellow_T1_20261116.dat,eligible,,T1,T1,1000,500,1500,Arduino session profile,2803340,6
+yellow/yellow_T2_20261116.dat,eligible,,T2,T2,1000,5000,6000,Arduino session profile,2722840,6
+yellow/yellow_T3_20261116.dat,eligible,,T3,T3,5000,5000,10000,Arduino session profile,1764150,9

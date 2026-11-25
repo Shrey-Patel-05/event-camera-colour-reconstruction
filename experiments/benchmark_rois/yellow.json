@@ -1,0 +1,29 @@
+{
+  "batch": "yellow",
+  "source": "yellow_T2_20261116.dat",
+  "width": 1280,
+  "height": 720,
+  "rois": {
+    "ROI_1": {
+      "swatch": "yellow",
+      "points": [
+        [
+          509,
+          312
+        ],
+        [
+          688,
+          312
+        ],
+        [
+          688,
+          491
+        ],
+        [
+          509,
+          491
+        ]
+      ]
+    }
+  }
+}

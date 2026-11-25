@@ -1,0 +1,88 @@
+VALSPAR  /  COLOUR RECONSTRUCTION
+/Users/shrey/Downloads/colours
+87 DATs inventoried    32 excluded by protocol or name    4 input errors    51 readable eligible takes
+
+Experiment                             scored/attempted ROIs   swatches    balance loss    RGB MAE
+A  Yan / ON peak                        51/51               8          0.411        81.8
+B  Peak-centred timing                  40/43               8          0.265        56.0
+C  Median ON response                   47/51               8          0.417        89.8
+D  Calibrated A                         51/51               8          0.171        48.9
+E  Peak timing + median + calibration   40/43               8          0.141        42.8
+
+Yan baseline by swatch
+
+Swatch        scored/attempted     loss      RGB MAE      R pp      G pp      B pp
+black               6/6          0.327     78.1     -3.4      2.7      0.6
+dark_green          6/6          0.445    107.0     39.9    -35.3     -4.6
+grey                6/6          0.310     66.7     10.4    -13.8      3.3
+light_blue          6/6          0.515     77.1      4.6    -29.5     25.0
+orange              7/7          0.482     88.4    -40.7     43.1     -2.5
+purple              7/7          0.318     62.0      4.3     -0.3     -4.0
+red                 6/6          0.460     89.8    -27.6     27.6      0.0
+yellow              7/7          0.435     85.3    -40.7     19.6     21.1
+
+Paired changes from A on the same successful recording and polygon (negative favours candidate)
+Arm    takes   swatches   swatches improved    change in balance loss    change in RGB MAE
+B        40         8                  5                   -0.141               -25.3
+C        47         8                  4                    0.007                 6.2
+D        51         8                  8                   -0.240               -32.9
+E        40         8                  8                   -0.264               -38.6
+
+Peak-centred timing versus Yan on matched takes
+Swatch         takes    Yan loss    Peak-centred loss    Change
+black            2       0.214                0.285     0.070
+dark_green       5       0.477                0.207    -0.270
+grey             5       0.241                0.307     0.067
+light_blue       5       0.578                0.364    -0.214
+orange           6       0.531                0.272    -0.259
+purple           6       0.325                0.334     0.010
+red              5       0.434                0.201    -0.233
+yellow           6       0.441                0.146    -0.295
+
+Yan repeatability across independent CA1, CA2 and CA3 captures
+Swatch       Batch / profile / ROI               takes   pairs    between takes    to Valspar
+black        black / T2 / ROI_1                   3/3       3            0.662         0.351
+dark_green   dark_green / T2 / ROI_1              3/3       3            0.133         0.323
+grey         grey / T2 / ROI_1                    3/3       3            0.225         0.363
+light_blue   light_blue / T2 / ROI_1              3/3       3            0.000         0.519
+orange       orange / T2 / ROI_1                  3/3       3            0.017         0.571
+purple       purple / T2 / ROI_1                  3/3       3            0.590         0.409
+red          red / T2 / ROI_1                     3/3       3            0.659         0.439
+yellow       yellow / T2 / ROI_1                  3/3       3            0.077         0.494
+Between takes is the mean channel-share distance across distinct CA run pairs.
+To Valspar is mean colour-balance loss on those scored captures. Both use a 0–1 scale.
+
+Simple controls on the same scored cases
+Equal-channel prediction on A cases: balance loss 0.179.
+Training-swatch mean RGB (no events), with the same held-out folds as calibration:
+  D control   balance loss 0.212   RGB MAE 55.9
+  E control   balance loss 0.212   RGB MAE 55.9
+
+Timing diagnostics on common takes with both alignments and an identifiable red peak
+Arm    matched takes    median centre MAE (us)    median red-only MAE (us)
+A               40                     35037                       30310
+B               40                       114                         167
+Secondary/primary ON peak ratio: median 0.019 over 41 mapped takes.
+Each take averages the first measurement slots. A secondary local peak must lie at least
+300 us from the primary with an intervening trough at or below half the secondary height.
+Zero denotes no qualifying secondary peak in an active slot. Multiple bursts can share a slot.
+The ratio measures waveform shape; optical echo attribution requires independent evidence.
+
+Balance loss is half the sum of absolute channel-share errors (0 best, 1 worst).
+Each target share is its Valspar digital R, G or B value divided by their sum.
+Signed share bias is prediction minus reference in percentage points. Positive means overrepresented.
+RGB MAE is the mean absolute error of three 0–255 channels. A/B/C use Yan's display mapping.
+D/E use fitted digital RGB. Calibration holds out the entire swatch and its recordings.
+Means weight swatches equally, then recordings equally within swatch. Rejections count toward coverage.
+The colour targets approximate paint appearance. The timing proxy uses global ON peaks in firmware
+slots (100 us bins). B uses G/B peaks to align. Red peaks are withheld from the phase estimate.
+The dark-interval ON fraction in recordings.csv includes delayed responses and background activity.
+Independent optical timing and physical paint colour were unavailable.
+
+yan_rgb.png      Valspar and Yan RGB swatches by recording condition
+scores.csv       Each estimate, target RGB, signed errors and rejection reason
+summary.csv      Per-swatch scores, paired changes from Yan and simple controls
+repeatability.csv  Distances between CA captures and to the target, by arm and ROI
+recordings.csv   Inventory, timing diagnostics and input or detector failures
+paired.csv       Changes on common successful cases
+folds.csv        Training swatches and sample counts for each calibration fold

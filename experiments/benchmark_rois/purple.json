@@ -1,0 +1,29 @@
+{
+  "batch": "purple",
+  "source": "purple_T2_20261116.dat",
+  "width": 1280,
+  "height": 720,
+  "rois": {
+    "ROI_1": {
+      "swatch": "purple",
+      "points": [
+        [
+          522,
+          315
+        ],
+        [
+          701,
+          315
+        ],
+        [
+          701,
+          494
+        ],
+        [
+          522,
+          494
+        ]
+      ]
+    }
+  }
+}

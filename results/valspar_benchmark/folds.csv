@@ -1,0 +1,17 @@
+arm,held_out,training_swatches,train_recordings,test_rois
+D,black,dark_green grey light_blue orange purple red yellow,45,6
+D,dark_green,black grey light_blue orange purple red yellow,45,6
+D,grey,black dark_green light_blue orange purple red yellow,45,6
+D,light_blue,black dark_green grey orange purple red yellow,45,6
+D,orange,black dark_green grey light_blue purple red yellow,44,7
+D,purple,black dark_green grey light_blue orange red yellow,44,7
+D,red,black dark_green grey light_blue orange purple yellow,45,6
+D,yellow,black dark_green grey light_blue orange purple red,44,7
+E,black,dark_green grey light_blue orange purple red yellow,38,2
+E,dark_green,black grey light_blue orange purple red yellow,35,5
+E,grey,black dark_green light_blue orange purple red yellow,35,5
+E,light_blue,black dark_green grey orange purple red yellow,35,5
+E,orange,black dark_green grey light_blue purple red yellow,34,6
+E,purple,black dark_green grey light_blue orange red yellow,34,6
+E,red,black dark_green grey light_blue orange purple yellow,35,5
+E,yellow,black dark_green grey light_blue orange purple red,34,6

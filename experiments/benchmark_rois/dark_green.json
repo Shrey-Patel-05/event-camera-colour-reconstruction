@@ -1,0 +1,29 @@
+{
+  "batch": "dark_green",
+  "source": "dark_green_T2_20261116.dat",
+  "width": 1280,
+  "height": 720,
+  "rois": {
+    "ROI_1": {
+      "swatch": "dark_green",
+      "points": [
+        [
+          475,
+          306
+        ],
+        [
+          654,
+          306
+        ],
+        [
+          654,
+          485
+        ],
+        [
+          475,
+          485
+        ]
+      ]
+    }
+  }
+}
